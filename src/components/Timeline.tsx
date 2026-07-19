@@ -8,7 +8,7 @@ export default function Timeline() {
   return (
     <section id="timeline" className="py-16 md:py-24 bg-white relative overflow-hidden">
       {/* Decorative leaf shapes on borders */}
-      <div className="absolute -left-10 top-1/4 h-40 w-40 rounded-full bg-[#7BBF6A]/5 blur-2xl"></div>
+      <div className="absolute -left-10 top-1/4 h-40 w-40 rounded-full bg-[#4E7C59]/5 blur-2xl"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
@@ -30,7 +30,7 @@ export default function Timeline() {
         {/* Timeline Line & Grid */}
         <div className="mt-16 relative">
           {/* Vertical central line (hidden on small screen, showing on md+) */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-[#EBE6DD] -translate-x-1/2"></div>
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-[#E6E2DA] -translate-x-1/2"></div>
 
           <div className="space-y-12 relative">
             {TIMELINE_DATA.map((item, idx) => {
@@ -47,7 +47,7 @@ export default function Timeline() {
                   }`}
                 >
                   {/* Timeline Dot (Milestone circle) */}
-                  <div className="absolute left-4 md:left-1/2 h-10 w-10 rounded-full border-4 border-white bg-[#7BBF6A] shadow-md -translate-x-1/2 z-10 flex items-center justify-center text-white transition-all duration-300 transform scale-100 hover:scale-125">
+                  <div className="absolute left-4 md:left-1/2 h-10 w-10 rounded-full border-4 border-white bg-[#4E7C59] shadow-md -translate-x-1/2 z-10 flex items-center justify-center text-white transition-all duration-300 transform scale-100 hover:scale-125">
                     <Sparkles className="h-4.5 w-4.5" />
                   </div>
 
@@ -55,13 +55,13 @@ export default function Timeline() {
                   <div className="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
                     <div className={`rounded-3xl p-6 sm:p-8 border transition-all duration-300 ${
                       isHovered 
-                        ? "bg-[#FAF8F3] border-[#7BBF6A] shadow-lg scale-[1.01]" 
-                        : "bg-[#FAF8F3]/50 border-[#EBE6DD] shadow-sm"
+                        ? "bg-[#FAF8F3] border-[#4E7C59] shadow-lg scale-[1.01]" 
+                        : "bg-[#FAF8F3]/50 border-[#E6E2DA] shadow-sm"
                     }`}>
                       
                       {/* Year badge */}
                       <div className="flex items-center justify-between">
-                        <span className="text-4xl font-black text-[#7BBF6A] tracking-wider">
+                        <span className="text-4xl font-black text-[#4E7C59] tracking-wider">
                           {item.year}
                         </span>
                         <CalendarDays className="h-6 w-6 text-gray-400" />
@@ -73,20 +73,23 @@ export default function Timeline() {
                       </h3>
 
                       {/* Sub-desc */}
-                      <p className="text-base font-bold text-[#F4B36A] mt-1.5">
+                      <p className="text-base font-bold text-[#D8A44C] mt-1.5">
                         {item.description}
                       </p>
 
                       {/* Bullet points detailing the memories */}
-                      <div className="mt-6 space-y-3.5 border-t border-dashed border-[#EBE6DD] pt-4">
-                        {item.details.map((detail, index) => (
-                          <div key={index} className="flex items-start space-x-2 text-gray-700">
-                            <CheckCircle2 className="h-5 w-5 text-[#7BBF6A] shrink-0 mt-0.5" />
-                            <span className="text-base font-medium leading-relaxed">
-                              {detail}
-                            </span>
-                          </div>
-                        ))}
+                      <div className="mt-6 space-y-3.5 border-t border-dashed border-[#E6E2DA] pt-4">
+                        {item.details.map((detail, index) => {
+                          const hasPrefixIcon = detail.trim().startsWith("✔️") || detail.trim().startsWith("⭕️");
+                          return (
+                            <div key={index} className="flex items-start space-x-2 text-gray-700">
+                              {!hasPrefixIcon && <CheckCircle2 className="h-5 w-5 text-[#4E7C59] shrink-0 mt-0.5" />}
+                              <span className="text-base font-medium leading-relaxed whitespace-pre-line">
+                                {detail}
+                              </span>
+                            </div>
+                          );
+                        })}
                       </div>
 
                       {/* Hearts container */}

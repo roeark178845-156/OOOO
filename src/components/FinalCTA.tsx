@@ -51,12 +51,12 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
         
         {/* If already joined: Show beautiful membership card */}
         {isJoined ? (
-          <div className="mx-auto max-w-2xl bg-white border border-[#EBE6DD] rounded-3xl p-6 sm:p-10 shadow-2xl text-center space-y-8 animate-in zoom-in-95 duration-300">
+          <div className="mx-auto max-w-2xl bg-white border border-[#E6E2DA] rounded-3xl p-6 sm:p-10 shadow-2xl text-center space-y-8 animate-in zoom-in-95 duration-300">
             <div className="space-y-3">
-              <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-[#7BBF6A] text-4xl">
+              <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-[#4E7C59] text-4xl">
                 🎉
               </span>
-              <h2 className="text-3xl font-extrabold text-[#7BBF6A]">
+              <h2 className="text-3xl font-extrabold text-[#4E7C59]">
                 歡迎加入樂活大家庭！
               </h2>
               <p className="text-base text-gray-500 font-semibold max-w-md mx-auto">
@@ -65,16 +65,16 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
             </div>
 
             {/* Simulated VIP Card Frame */}
-            <div className="relative mx-auto max-w-md rounded-2xl bg-gradient-to-br from-gray-900 via-emerald-950 to-[#7BBF6A] p-[2px] shadow-xl text-left overflow-hidden">
+            <div className="relative mx-auto max-w-md rounded-2xl bg-gradient-to-br from-gray-900 via-emerald-950 to-[#4E7C59] p-[2px] shadow-xl text-left overflow-hidden">
               {/* Card glossy reflection pattern */}
               <div className="absolute inset-0 bg-white/5 skew-y-12 origin-top-left"></div>
               
-              <div className="relative rounded-[14px] bg-gradient-to-br from-[#102a1d] via-[#1c3f2d] to-[#7BBF6A]/80 p-6 text-white flex flex-col justify-between h-[250px]">
+              <div className="relative rounded-[14px] bg-gradient-to-br from-[#102a1d] via-[#1c3f2d] to-[#4E7C59]/80 p-6 text-white flex flex-col justify-between h-[250px]">
                 
                 {/* Card Top Brand */}
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-2">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#7BBF6A] text-white font-bold text-sm">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4E7C59] text-white font-bold text-sm">
                       樂
                     </div>
                     <div>
@@ -128,7 +128,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
               {isModalMode && onCloseModal && (
                 <button
                   onClick={onCloseModal}
-                  className="rounded-xl bg-[#7BBF6A] text-white px-6 py-2.5 text-base font-bold hover:bg-[#6AA85B]"
+                  className="rounded-xl bg-[#4E7C59] text-white px-6 py-2.5 text-base font-bold hover:bg-[#3D6646]"
                 >
                   確認關閉
                 </button>
@@ -137,7 +137,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
           </div>
         ) : (
           /* Normal form card */
-          <div className="mx-auto max-w-4xl bg-white border border-[#EBE6DD] rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl">
+          <div className="mx-auto max-w-4xl bg-white border border-[#E6E2DA] rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               {/* Message Column */}
@@ -149,7 +149,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                 <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
                   一起創造下一段
                   <br />
-                  <span className="text-[#F4B36A]">幸福旅程</span>
+                  <span className="text-[#D8A44C]">幸福旅程</span>
                 </h3>
 
                 <p className="text-base text-gray-600 font-bold leading-relaxed">
@@ -166,7 +166,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
 
                 <div className="pt-2 border-t border-gray-100 space-y-3 text-left hidden lg:block text-xs font-semibold text-gray-400">
                   <div className="flex items-center space-x-2">
-                    <ShieldCheck className="h-4 w-4 text-[#7BBF6A]" />
+                    <ShieldCheck className="h-4 w-4 text-[#4E7C59]" />
                     <span>個資安全保護・無任何推銷騷擾</span>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -177,7 +177,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
               </div>
 
               {/* Form Input Column */}
-              <div className="lg:col-span-7 bg-[#FAF8F3] p-6 sm:p-8 rounded-2xl border border-[#EBE6DD]">
+              <div className="lg:col-span-7 bg-[#FAF8F3] p-6 sm:p-8 rounded-2xl border border-[#E6E2DA]">
                 <h4 className="text-xl font-extrabold text-gray-800 text-center mb-6">
                   立即加入我們的行列
                 </h4>
@@ -197,7 +197,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                           placeholder="例如：王小明"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          className="w-full rounded-xl border border-gray-300 bg-white pl-10 pr-3 py-3 text-base font-bold focus:border-[#7BBF6A] focus:outline-none"
+                          className="w-full rounded-xl border border-gray-300 bg-white pl-10 pr-3 py-3 text-base font-bold focus:border-[#4E7C59] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -215,7 +215,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                           placeholder="例如：0912-345678"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          className="w-full rounded-xl border border-gray-300 bg-white pl-10 pr-3 py-3 text-base font-bold focus:border-[#7BBF6A] focus:outline-none"
+                          className="w-full rounded-xl border border-gray-300 bg-white pl-10 pr-3 py-3 text-base font-bold focus:border-[#4E7C59] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -234,7 +234,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                           onClick={() => setAgeRange(age)}
                           className={`py-2 rounded-xl text-sm font-bold border transition-all ${
                             ageRange === age
-                              ? "bg-[#7BBF6A] border-[#7BBF6A] text-white shadow-sm"
+                              ? "bg-[#4E7C59] border-[#4E7C59] text-white shadow-sm"
                               : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
                           }`}
                         >
@@ -279,7 +279,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-[#F4B36A] to-amber-500 hover:from-amber-500 hover:to-[#F4B36A] text-white py-4 text-lg font-black shadow-lg shadow-orange-100 transition-all transform hover:-translate-y-0.5"
+                      className="w-full flex items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-[#D8A44C] to-amber-500 hover:from-amber-500 hover:to-[#D8A44C] text-white py-4 text-lg font-black shadow-lg shadow-orange-100 transition-all transform hover:-translate-y-0.5"
                     >
                       <UserCheck className="h-5 w-5" />
                       <span>加入我們</span>

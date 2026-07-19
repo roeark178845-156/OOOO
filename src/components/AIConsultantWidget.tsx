@@ -110,10 +110,10 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
       {!isOpen && (
         <button
           onClick={onOpen}
-          className="fixed bottom-6 right-6 z-40 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#F4B36A] to-amber-500 text-white shadow-2xl hover:shadow-orange-200 transition-all hover:scale-110 focus:outline-none select-none group"
+          className="fixed bottom-6 right-6 z-40 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D8A44C] to-amber-500 text-white shadow-2xl hover:shadow-orange-200 transition-all hover:scale-110 focus:outline-none select-none group"
         >
           <MessageSquare className="h-7 w-7 group-hover:rotate-12 transition-transform" />
-          <span className="absolute -top-10 right-0 bg-white border border-[#EBE6DD] text-[#FAF8F3] bg-[#F4B36A] text-[11px] font-black rounded-lg px-2.5 py-1 whitespace-nowrap shadow-md scale-0 group-hover:scale-100 origin-bottom transition-all">
+          <span className="absolute -top-10 right-0 bg-[#D8A44C] border border-[#E6E2DA] text-[#FAF8F3] text-[11px] font-black rounded-lg px-2.5 py-1 whitespace-nowrap shadow-md scale-0 group-hover:scale-100 origin-bottom transition-all">
             💬 點我！AI 規劃師為您推薦生活
           </span>
           {/* Animated pulsing circle */}
@@ -123,10 +123,10 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
 
       {/* Chat Window Dialog */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-[92%] sm:w-[420px] h-[580px] bg-white rounded-3xl border border-[#EBE6DD] shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-6 duration-300">
+        <div className="fixed bottom-6 right-6 z-50 w-[92%] sm:w-[420px] h-[580px] bg-white rounded-3xl border border-[#E6E2DA] shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-6 duration-300">
           
           {/* Chat Header */}
-          <div className="bg-gradient-to-r from-[#7BBF6A] to-emerald-700 text-white p-4.5 flex items-center justify-between shadow-md">
+          <div className="bg-gradient-to-r from-[#4E7C59] to-emerald-800 text-white p-4.5 flex items-center justify-between shadow-md">
             <div className="flex items-center space-x-2.5">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white">
                 <Sparkles className="h-5.5 w-5.5 animate-pulse" />
@@ -168,8 +168,8 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
                 <div
                   className={`max-w-[85%] rounded-2xl p-4 text-base font-bold leading-relaxed shadow-sm whitespace-pre-line border ${
                     msg.role === "user"
-                      ? "bg-[#7BBF6A] border-[#7BBF6A] text-white rounded-br-none"
-                      : "bg-white border-[#EBE6DD] text-gray-800 rounded-bl-none"
+                      ? "bg-[#4E7C59] border-[#4E7C59] text-white rounded-br-none"
+                      : "bg-white border-[#E6E2DA] text-gray-800 rounded-bl-none"
                   }`}
                 >
                   {msg.text}
@@ -180,8 +180,8 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
             {/* Loading Indicator */}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border border-[#EBE6DD] rounded-2xl rounded-bl-none p-4 shadow-sm flex items-center space-x-2.5 max-w-[85%] text-gray-500 font-bold text-sm">
-                  <Coffee className="h-5 w-5 text-[#F4B36A] animate-bounce" />
+                <div className="bg-white border border-[#E6E2DA] rounded-2xl rounded-bl-none p-4 shadow-sm flex items-center space-x-2.5 max-w-[85%] text-gray-500 font-bold text-sm">
+                  <Coffee className="h-5 w-5 text-[#D8A44C] animate-bounce" />
                   <span>規劃師正在幫您倒杯熱茶、並整理推薦活動喔...</span>
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
           </div>
 
           {/* Suggestions Tray (Before input) */}
-          <div className="px-4 py-2 border-t border-[#EBE6DD]/60 bg-[#FAF8F3]/80">
+          <div className="px-4 py-2 border-t border-[#E6E2DA]/60 bg-[#FAF8F3]/80">
             <p className="text-[10px] text-gray-400 font-bold mb-1.5">💡 長輩快速點選（免打字）：</p>
             <div className="flex flex-wrap gap-1.5">
               {presetSuggestions.map((sug, idx) => (
@@ -207,7 +207,7 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
                   key={idx}
                   onClick={() => handleSendMessage(sug.text)}
                   disabled={isLoading}
-                  className="rounded-full bg-white border border-[#EBE6DD] px-3 py-1.5 text-xs font-bold text-gray-700 hover:border-[#7BBF6A] hover:bg-[#7BBF6A]/5 transition-all text-left"
+                  className="rounded-full bg-white border border-[#E6E2DA] px-3 py-1.5 text-xs font-bold text-gray-700 hover:border-[#4E7C59] hover:bg-[#4E7C59]/5 transition-all text-left"
                 >
                   {sug.label}
                 </button>
@@ -221,7 +221,7 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
               e.preventDefault();
               handleSendMessage(inputValue);
             }}
-            className="p-3 bg-white border-t border-[#EBE6DD] flex items-center space-x-2"
+            className="p-3 bg-white border-t border-[#E6E2DA] flex items-center space-x-2"
           >
             <input
               type="text"
@@ -229,12 +229,12 @@ export default function AIConsultantWidget({ isOpen, onClose, onOpen }: AIConsul
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="請輸入您想問的事情..."
               disabled={isLoading}
-              className="flex-1 bg-gray-50 rounded-xl px-4 py-3 text-base font-bold text-gray-800 placeholder-gray-400 border border-gray-200 focus:outline-none focus:border-[#7BBF6A] focus:bg-white disabled:opacity-50"
+              className="flex-1 bg-gray-50 rounded-xl px-4 py-3 text-base font-bold text-gray-800 placeholder-gray-400 border border-gray-200 focus:outline-none focus:border-[#4E7C59] focus:bg-white disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={!inputValue.trim() || isLoading}
-              className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#7BBF6A] hover:bg-[#6AA85B] text-white shadow-md disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-all focus:outline-none"
+              className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4E7C59] hover:bg-[#3D6646] text-white shadow-md disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-all focus:outline-none"
             >
               <Send className="h-5 w-5" />
             </button>

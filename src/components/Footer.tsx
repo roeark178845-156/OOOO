@@ -29,7 +29,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-2.5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#7BBF6A] text-white font-bold text-lg shadow-md">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#4E7C59] text-white font-bold text-lg shadow-md">
                 樂
               </div>
               <span className="text-2xl font-black tracking-tight text-white">樂活退休生活網</span>
@@ -45,7 +45,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
 
           {/* Lohas Academy Col */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="text-lg font-black text-[#7BBF6A] tracking-wider uppercase border-l-3 border-[#7BBF6A] pl-2.5">
+            <h4 className="text-lg font-black text-[#4E7C59] tracking-wider uppercase border-l-3 border-[#4E7C59] pl-2.5">
               {FOOTER_INFO.academy.title}
             </h4>
             <div className="space-y-3.5 text-sm font-semibold">
@@ -62,16 +62,16 @@ export default function Footer({ onScrollToSection }: FooterProps) {
 
           {/* Contact Col */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-lg font-black text-[#F4B36A] tracking-wider uppercase border-l-3 border-[#F4B36A] pl-2.5">
+            <h4 className="text-lg font-black text-[#D8A44C] tracking-wider uppercase border-l-3 border-[#D8A44C] pl-2.5">
               聯絡我們
             </h4>
             <div className="space-y-3.5 text-sm font-semibold">
               <div className="flex items-center space-x-2">
-                <Phone className="h-4.5 w-4.5 text-[#F4B36A]" />
+                <Phone className="h-4.5 w-4.5 text-[#D8A44C]" />
                 <span>{FOOTER_INFO.contact.phone}</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-4.5 w-4.5 text-[#F4B36A]" />
+                <Mail className="h-4.5 w-4.5 text-[#D8A44C]" />
                 <span>{FOOTER_INFO.contact.email}</span>
               </div>
             </div>

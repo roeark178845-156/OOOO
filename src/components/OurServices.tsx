@@ -31,13 +31,13 @@ export default function OurServices() {
                 key={serv.id}
                 className={`flex flex-col justify-between p-6 sm:p-8 rounded-3xl border transition-all duration-300 transform hover:-translate-y-1 ${
                   isHighlighted 
-                    ? "bg-gradient-to-br from-[#7BBF6A]/10 to-[#8CCAF7]/10 border-[#7BBF6A] shadow-md" 
-                    : "bg-[#FAF8F3]/40 border-[#EBE6DD] hover:bg-[#FAF8F3] hover:shadow-lg"
+                    ? "bg-gradient-to-br from-[#4E7C59]/10 to-[#D8A44C]/10 border-[#4E7C59] shadow-md" 
+                    : "bg-[#FAF8F3]/40 border-[#E6E2DA] hover:bg-[#FAF8F3] hover:shadow-lg"
                 }`}
               >
                 <div className="space-y-4">
                   {/* Service Icon with a circular frame */}
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm border border-[#EBE6DD]/60">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm border border-[#E6E2DA]/60">
                     {serv.icon}
                   </div>
 

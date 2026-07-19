@@ -22,10 +22,10 @@ export default function BigFourCategories({ onScrollToSection, onFilterLatestEve
 
   const getThemeColor = (id: string) => {
     switch (id) {
-      case "travel": return "border-[#7BBF6A] bg-[#7BBF6A]/5 hover:bg-[#7BBF6A]/10 text-green-700";
+      case "travel": return "border-[#4E7C59] bg-[#4E7C59]/5 hover:bg-[#4E7C59]/10 text-green-700";
       case "course": return "border-[#8CCAF7] bg-[#8CCAF7]/5 hover:bg-[#8CCAF7]/10 text-blue-700";
       case "service": return "border-rose-300 bg-rose-50 hover:bg-rose-100/50 text-rose-700";
-      case "activity": return "border-[#F4B36A] bg-[#F4B36A]/5 hover:bg-[#F4B36A]/10 text-orange-700";
+      case "activity": return "border-[#D8A44C] bg-[#D8A44C]/5 hover:bg-[#D8A44C]/10 text-amber-700";
       default: return "";
     }
   };
@@ -60,8 +60,8 @@ export default function BigFourCategories({ onScrollToSection, onFilterLatestEve
                 onClick={() => setActiveTab(cat.id)}
                 className={`flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl border-3 text-center transition-all duration-300 transform hover:-translate-y-1 ${
                   isActive 
-                    ? "bg-white border-[#7BBF6A] shadow-xl ring-4 ring-[#7BBF6A]/10" 
-                    : "bg-white/80 border-[#EBE6DD] hover:border-gray-400"
+                    ? "bg-white border-[#4E7C59] shadow-xl ring-4 ring-[#4E7C59]/10" 
+                    : "bg-white/80 border-[#E6E2DA] hover:border-gray-400"
                 }`}
               >
                 <span className="text-5xl sm:text-6xl select-none leading-none mb-3">
@@ -84,17 +84,17 @@ export default function BigFourCategories({ onScrollToSection, onFilterLatestEve
           return (
             <div 
               key={cat.id}
-              className="mt-8 rounded-3xl border border-[#EBE6DD] bg-white p-6 sm:p-10 md:p-12 shadow-md animate-in fade-in slide-in-from-bottom-5 duration-300"
+              className="mt-8 rounded-3xl border border-[#E6E2DA] bg-white p-6 sm:p-10 md:p-12 shadow-md animate-in fade-in slide-in-from-bottom-5 duration-300"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 {/* Info Text */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="flex items-center space-x-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#7BBF6A]/10">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#4E7C59]/10">
                       {getCategoryIcon(cat.id)}
                     </div>
-                    <span className="text-lg font-extrabold text-[#7BBF6A] tracking-wider">
+                    <span className="text-lg font-extrabold text-[#4E7C59] tracking-wider">
                       {cat.badge}
                     </span>
                   </div>
@@ -110,7 +110,7 @@ export default function BigFourCategories({ onScrollToSection, onFilterLatestEve
                   <div className="pt-2">
                     <button
                       onClick={() => handleActionClick(cat.id)}
-                      className="flex items-center space-x-2 rounded-2xl bg-[#7BBF6A] hover:bg-[#6AA85B] text-white px-6 py-4 text-lg font-bold shadow-md transition-all transform hover:translate-x-1"
+                      className="flex items-center space-x-2 rounded-2xl bg-[#4E7C59] hover:bg-[#3D6646] text-white px-6 py-4 text-lg font-bold shadow-md transition-all transform hover:translate-x-1"
                     >
                       <span>{cat.buttonText}</span>
                       <ArrowRight className="h-5 w-5" />
@@ -119,7 +119,7 @@ export default function BigFourCategories({ onScrollToSection, onFilterLatestEve
                 </div>
 
                 {/* Sub-Items Lists / Badges */}
-                <div className="lg:col-span-5 bg-[#FAF8F3] p-6 sm:p-8 rounded-2xl border border-[#EBE6DD] space-y-4">
+                <div className="lg:col-span-5 bg-[#FAF8F3] p-6 sm:p-8 rounded-2xl border border-[#E6E2DA] space-y-4">
                   <h4 className="text-lg font-bold text-gray-700 border-b border-gray-200 pb-2">
                     包含特色內容：
                   </h4>
@@ -128,9 +128,9 @@ export default function BigFourCategories({ onScrollToSection, onFilterLatestEve
                     {cat.details.map((detail, index) => (
                       <div 
                         key={index} 
-                        className="flex items-center space-x-2 text-gray-700 bg-white px-4 py-3 rounded-xl border border-[#EBE6DD]/60 shadow-sm"
+                        className="flex items-center space-x-2 text-gray-700 bg-white px-4 py-3 rounded-xl border border-[#E6E2DA]/60 shadow-sm"
                       >
-                        <CheckCircle className="h-5 w-5 text-[#7BBF6A] shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-[#4E7C59] shrink-0" />
                         <span className="text-base font-bold">{detail}</span>
                       </div>
                     ))}

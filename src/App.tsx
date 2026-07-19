@@ -154,16 +154,16 @@ export default function App() {
           {!isScheduleOpen ? (
             <button
               onClick={() => setIsScheduleOpen(true)}
-              className="flex items-center space-x-2 rounded-full bg-[#7BBF6A] hover:bg-[#6AA85B] text-white px-5 py-3.5 shadow-2xl transition-all transform hover:scale-105"
+              className="flex items-center space-x-2 rounded-full bg-[#4E7C59] hover:bg-[#3D6646] text-white px-5 py-3.5 shadow-2xl transition-all transform hover:scale-105"
             >
               <Ticket className="h-5 w-5 animate-bounce" />
               <span className="text-base font-black">我的行程表 ({registeredEvents.length})</span>
             </button>
           ) : (
-            <div className="w-[90vw] sm:w-[350px] bg-white border border-[#EBE6DD] rounded-3xl p-5 shadow-2xl space-y-4 animate-in slide-in-from-left-6 duration-200">
+            <div className="w-[90vw] sm:w-[350px] bg-white border border-[#E6E2DA] rounded-3xl p-5 shadow-2xl space-y-4 animate-in slide-in-from-left-6 duration-200">
               <div className="flex items-center justify-between border-b pb-2">
                 <h4 className="text-lg font-black text-gray-800 flex items-center space-x-1.5">
-                  <Calendar className="h-5 w-5 text-[#7BBF6A]" />
+                  <Calendar className="h-5 w-5 text-[#4E7C59]" />
                   <span>🗓️ 我的樂活日程</span>
                 </h4>
                 <button 
@@ -177,7 +177,7 @@ export default function App() {
               {/* List of registered events */}
               <div className="space-y-3 max-h-[250px] overflow-y-auto pr-1">
                 {registeredEvents.map((evt) => (
-                  <div key={evt.id} className="p-3.5 rounded-xl bg-[#FAF8F3] border border-[#EBE6DD] space-y-1 relative group">
+                  <div key={evt.id} className="p-3.5 rounded-xl bg-[#FAF8F3] border border-[#E6E2DA] space-y-1 relative group">
                     <button
                       onClick={() => handleRegisterEvent(evt)}
                       className="absolute top-2 right-2 text-xs font-semibold text-rose-500 hover:text-rose-700 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -186,11 +186,11 @@ export default function App() {
                     </button>
                     <p className="text-sm font-black text-gray-800 pr-10">{evt.title}</p>
                     <div className="flex items-center space-x-1.5 text-xs text-gray-500 font-bold">
-                      <Calendar className="h-3.5 w-3.5 text-[#7BBF6A]" />
+                      <Calendar className="h-3.5 w-3.5 text-[#4E7C59]" />
                       <span>{evt.date}</span>
                     </div>
                     <div className="flex items-center space-x-1.5 text-xs text-gray-500 font-semibold">
-                      <MapPin className="h-3.5 w-3.5 text-[#7BBF6A]" />
+                      <MapPin className="h-3.5 w-3.5 text-[#4E7C59]" />
                       <span className="truncate max-w-[180px]">{evt.location}</span>
                     </div>
                   </div>
@@ -199,13 +199,13 @@ export default function App() {
 
               {/* Action callout */}
               <div className="pt-2 border-t flex flex-col items-center space-y-2">
-                <div className="flex items-center space-x-1 text-[11px] font-bold text-[#7BBF6A]">
+                <div className="flex items-center space-x-1 text-[11px] font-bold text-[#4E7C59]">
                   <CheckCircle className="h-3.5 w-3.5" />
                   <span>預約成功！報名資訊已幫您妥善暫存。</span>
                 </div>
                 <button
                   onClick={() => handleScrollToSection("contact")}
-                  className="w-full rounded-xl bg-gradient-to-r from-[#F4B36A] to-amber-500 text-white py-2.5 text-sm font-bold text-center hover:opacity-90 shadow-sm"
+                  className="w-full rounded-xl bg-gradient-to-r from-[#D8A44C] to-amber-500 text-white py-2.5 text-sm font-bold text-center hover:opacity-90 shadow-sm"
                 >
                   確認填寫會員資料，完成保留 ➔
                 </button>

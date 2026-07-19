@@ -78,7 +78,7 @@ export default function GallerySmiles() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#EBE6DD]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#E6E2DA]">
           <div className="space-y-4 text-center md:text-left">
             <div className="inline-flex items-center space-x-2 rounded-full bg-orange-100 px-4 py-1 text-sm font-bold text-orange-700">
               <span>😊 留下幸福・點亮精彩</span>
@@ -94,7 +94,7 @@ export default function GallerySmiles() {
           <div className="flex space-x-2">
             <button
               onClick={() => setIsUploadOpen(!isUploadOpen)}
-              className="flex items-center space-x-2 rounded-2xl bg-[#F4B36A] hover:bg-[#E29F55] text-white px-5 py-3 text-base font-bold shadow-md hover:shadow-lg transition-all"
+              className="flex items-center space-x-2 rounded-2xl bg-[#D8A44C] hover:bg-[#C08E3C] text-white px-5 py-3 text-base font-bold shadow-md hover:shadow-lg transition-all"
             >
               <PlusCircle className="h-5 w-5" />
               <span>分享我的精彩笑容</span>
@@ -110,8 +110,8 @@ export default function GallerySmiles() {
               onClick={() => setActiveCategory(tab.id)}
               className={`flex items-center space-x-1.5 px-4.5 py-2.5 rounded-full text-base font-bold transition-all border ${
                 activeCategory === tab.id
-                  ? "bg-[#7BBF6A] border-[#7BBF6A] text-white shadow-md"
-                  : "bg-white border-[#EBE6DD] text-gray-600 hover:bg-[#FAF8F3]"
+                  ? "bg-[#4E7C59] border-[#4E7C59] text-white shadow-md"
+                  : "bg-white border-[#E6E2DA] text-gray-600 hover:bg-[#FAF8F3]"
               }`}
             >
               <span>{tab.emoji}</span>
@@ -122,10 +122,10 @@ export default function GallerySmiles() {
 
         {/* Upload Form (Expandable) */}
         {isUploadOpen && (
-          <div className="mt-8 p-6 sm:p-8 bg-white border border-[#EBE6DD] rounded-3xl max-w-2xl mx-auto shadow-xl animate-in slide-in-from-top-4 duration-300">
+          <div className="mt-8 p-6 sm:p-8 bg-white border border-[#E6E2DA] rounded-3xl max-w-2xl mx-auto shadow-xl animate-in slide-in-from-top-4 duration-300">
             <div className="flex items-center justify-between border-b pb-3 mb-6">
               <h3 className="text-xl font-bold text-gray-800 flex items-center space-x-2">
-                <Smile className="h-6 w-6 text-[#F4B36A]" />
+                <Smile className="h-6 w-6 text-[#D8A44C]" />
                 <span>分享您的樂活精彩瞬間</span>
               </h3>
               <button 
@@ -147,7 +147,7 @@ export default function GallerySmiles() {
                   placeholder="例如：第一次挑戰書法大合影"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  className="w-full rounded-xl border border-gray-300 p-3 text-base font-medium focus:border-[#7BBF6A] focus:outline-none"
+                  className="w-full rounded-xl border border-gray-300 p-3 text-base font-medium focus:border-[#4E7C59] focus:outline-none"
                 />
               </div>
 
@@ -159,7 +159,7 @@ export default function GallerySmiles() {
                   <select
                     value={newCategory}
                     onChange={(e) => setNewCategory(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 p-3 text-base font-bold focus:border-[#7BBF6A] focus:outline-none"
+                    className="w-full rounded-xl border border-gray-300 p-3 text-base font-bold focus:border-[#4E7C59] focus:outline-none"
                   >
                     <option value="travel">✈️ 樂活旅遊</option>
                     <option value="course">📚 樂活課程</option>
@@ -178,7 +178,7 @@ export default function GallerySmiles() {
                     placeholder="可貼上任何公開的圖片網址"
                     value={newImgUrl}
                     onChange={(e) => setNewImgUrl(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 p-3 text-sm font-medium focus:border-[#7BBF6A] focus:outline-none"
+                    className="w-full rounded-xl border border-gray-300 p-3 text-sm font-medium focus:border-[#4E7C59] focus:outline-none"
                   />
                 </div>
               </div>
@@ -193,14 +193,14 @@ export default function GallerySmiles() {
                   placeholder="跟大家分享這個活動好玩、感動的地方吧！"
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
-                  className="w-full rounded-xl border border-gray-300 p-3 text-base font-medium focus:border-[#7BBF6A] focus:outline-none"
+                  className="w-full rounded-xl border border-gray-300 p-3 text-base font-medium focus:border-[#4E7C59] focus:outline-none"
                 ></textarea>
               </div>
 
               <div className="flex space-x-3 pt-2">
                 <button
                   type="submit"
-                  className="flex-1 rounded-xl bg-[#7BBF6A] hover:bg-[#6AA85B] text-white py-3 text-base font-bold shadow-md transition-all"
+                  className="flex-1 rounded-xl bg-[#4E7C59] hover:bg-[#3D6646] text-white py-3 text-base font-bold shadow-md transition-all"
                 >
                   確認上傳，同步到下方回憶牆 ➔
                 </button>
@@ -224,7 +224,7 @@ export default function GallerySmiles() {
               <div 
                 key={item.id}
                 onClick={() => setSelectedPhoto(item)}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-[#EBE6DD] bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-[#E6E2DA] bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Photo frame */}
                 <div className="relative aspect-4/3 w-full overflow-hidden bg-gray-100">
@@ -305,13 +305,13 @@ export default function GallerySmiles() {
                 <div className="p-5 space-y-2">
                   <div className="flex items-center justify-between text-xs text-gray-400 font-bold">
                     <div className="flex items-center space-x-1">
-                      <Calendar className="h-3.5 w-3.5 text-[#7BBF6A]" />
+                      <Calendar className="h-3.5 w-3.5 text-[#4E7C59]" />
                       <span>{item.date}</span>
                     </div>
                     <span>點擊放大</span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-gray-800 line-clamp-1 group-hover:text-[#7BBF6A] transition-colors">
+                  <h3 className="text-lg font-bold text-gray-800 line-clamp-1 group-hover:text-[#4E7C59] transition-colors">
                     {item.title}
                   </h3>
 
@@ -337,7 +337,7 @@ export default function GallerySmiles() {
 
         {/* Empty placeholder */}
         {filteredMemories.length === 0 && (
-          <div className="mt-12 text-center p-12 bg-white rounded-3xl border border-[#EBE6DD] max-w-md mx-auto">
+          <div className="mt-12 text-center p-12 bg-white rounded-3xl border border-[#E6E2DA] max-w-md mx-auto">
             <span className="text-5xl">📷</span>
             <p className="mt-4 text-lg font-bold text-gray-600">這個分類目前還沒有回憶喔</p>
             <p className="text-sm text-gray-400 font-semibold mt-1">歡迎點擊上方按鈕，分享您的第一張燦爛笑臉！</p>
@@ -423,7 +423,7 @@ export default function GallerySmiles() {
                 {/* Details side Panel */}
                 <div className="md:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
-                    <span className="inline-block rounded-xl bg-green-50 border border-green-200 text-xs font-bold text-[#7BBF6A] px-3 py-1">
+                    <span className="inline-block rounded-xl bg-green-50 border border-green-200 text-xs font-bold text-[#4E7C59] px-3 py-1">
                       樂活大家庭回憶錄
                     </span>
                     
@@ -432,17 +432,17 @@ export default function GallerySmiles() {
                     </h3>
 
                     <div className="flex items-center space-x-2 text-sm text-gray-400 font-bold">
-                      <Calendar className="h-4.5 w-4.5 text-[#7BBF6A]" />
+                      <Calendar className="h-4.5 w-4.5 text-[#4E7C59]" />
                       <span>記錄時間：{selectedPhoto.date}</span>
                     </div>
 
-                    <p className="text-base text-gray-700 font-medium leading-relaxed bg-[#FAF8F3] p-4 rounded-2xl border border-[#EBE6DD]">
+                    <p className="text-base text-gray-700 font-medium leading-relaxed bg-[#FAF8F3] p-4 rounded-2xl border border-[#E6E2DA]">
                       {selectedPhoto.description || "大家在這個活動中度過了無與倫比的美好時光，心連著心，共同寫下暖意洋洋的樂活故事。"}
                     </p>
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div className="flex items-center space-x-1.5 text-[#7BBF6A] font-bold text-sm">
+                    <div className="flex items-center space-x-1.5 text-[#4E7C59] font-bold text-sm">
                       <Smile className="h-5 w-5" />
                       <span>樂活幸福學堂</span>
                     </div>

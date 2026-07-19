@@ -31,6 +31,12 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Google Site Verification
+  app.get("/google57664881974e9015.html", (req, res) => {
+    res.header("Content-Type", "text/html");
+    res.send("google-site-verification: google57664881974e9015.html");
+  });
+
   // robots.txt for search engines
   app.get("/robots.txt", (req, res) => {
     const host = req.get("host") || "ais-pre-4f7vhehthsd7wpp3pxgjfr-250294217184.asia-east1.run.app";

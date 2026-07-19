@@ -34,9 +34,9 @@ export default function LatestEvents({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header and Filter */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#EBE6DD]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#E6E2DA]">
           <div className="space-y-4 text-center md:text-left">
-            <div className="inline-flex items-center space-x-2 rounded-full bg-green-50 border border-green-200 px-4 py-1 text-sm font-bold text-[#7BBF6A]">
+            <div className="inline-flex items-center space-x-2 rounded-full bg-green-50 border border-green-200 px-4 py-1 text-sm font-bold text-[#4E7C59]">
               <span>🔥 搶先卡位・最新出發</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
@@ -55,8 +55,8 @@ export default function LatestEvents({
                 onClick={() => setFilterCategory(cat.id)}
                 className={`flex items-center space-x-1.5 px-4 py-2.5 rounded-full text-base font-bold border transition-all ${
                   (filterCategory === cat.id)
-                    ? "bg-[#7BBF6A] border-[#7BBF6A] text-white shadow-md shadow-green-100"
-                    : "bg-[#FAF8F3] border-[#EBE6DD] text-gray-600 hover:bg-[#F0EDE6]"
+                    ? "bg-[#4E7C59] border-[#4E7C59] text-white shadow-md shadow-green-100"
+                    : "bg-[#FAF8F3] border-[#E6E2DA] text-gray-600 hover:bg-[#EBE6DD]"
                 }`}
               >
                 <span>{cat.emoji}</span>
@@ -77,8 +77,8 @@ export default function LatestEvents({
                 key={evt.id}
                 className={`flex flex-col aspect-square w-full overflow-hidden rounded-3xl border transition-all duration-300 bg-white relative ${
                   isRegistered 
-                    ? "border-[#7BBF6A] ring-4 ring-[#7BBF6A]/5" 
-                    : "border-[#EBE6DD] hover:border-[#7BBF6A]/40 hover:shadow-xl"
+                    ? "border-[#4E7C59] ring-4 ring-[#4E7C59]/5" 
+                    : "border-[#E6E2DA] hover:border-[#4E7C59]/40 hover:shadow-xl"
                 }`}
               >
                 {/* Event Image with Badge */}
@@ -99,7 +99,7 @@ export default function LatestEvents({
                   {/* Registered checkmark overlay */}
                   {isRegistered && (
                     <div className="absolute inset-0 bg-green-900/40 backdrop-blur-xs flex items-center justify-center z-10">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#7BBF6A] shadow-lg">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#4E7C59] shadow-lg">
                         <Check className="h-8 w-8 stroke-[3]" />
                       </div>
                     </div>
@@ -126,11 +126,11 @@ export default function LatestEvents({
                     {/* Metadata lines */}
                     <div className="space-y-1 text-xs text-gray-600 font-semibold shrink-0">
                       <div className="flex items-center space-x-2">
-                        <Calendar className="h-3.5 w-3.5 text-[#7BBF6A] shrink-0" />
+                        <Calendar className="h-3.5 w-3.5 text-[#4E7C59] shrink-0" />
                         <span className="truncate">{evt.date} <span className="text-[9px] text-gray-400 bg-gray-100 px-1 py-0.5 rounded ml-1 font-semibold">{evt.time}</span></span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <MapPin className="h-3.5 w-3.5 text-[#7BBF6A] shrink-0" />
+                        <MapPin className="h-3.5 w-3.5 text-[#4E7C59] shrink-0" />
                         <span className="truncate">{evt.location}</span>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ export default function LatestEvents({
                   </div>
 
                   {/* Event bottom card action and info */}
-                  <div className="flex items-center justify-between pt-2.5 border-t border-[#EBE6DD]/60 shrink-0 mt-2">
+                  <div className="flex items-center justify-between pt-2.5 border-t border-[#E6E2DA]/60 shrink-0 mt-2">
                     <div className="flex items-center space-x-1 text-[10px] font-bold text-gray-500">
                       <Users className="h-3.5 w-3.5 text-gray-400" />
                       <span className="whitespace-nowrap">剩 {evt.slots} / 限 {evt.maxSlots}</span>
@@ -152,7 +152,7 @@ export default function LatestEvents({
                       className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all shadow-sm shrink-0 whitespace-nowrap ${
                         isRegistered 
                           ? "bg-gray-100 text-gray-600 hover:bg-gray-200" 
-                          : "bg-[#7BBF6A] hover:bg-[#6AA85B] text-white hover:shadow-md"
+                          : "bg-[#4E7C59] hover:bg-[#3D6646] text-white hover:shadow-md"
                       }`}
                     >
                       {isRegistered ? "取消" : "報名 ➔"}
@@ -169,7 +169,7 @@ export default function LatestEvents({
         <div className="mt-12 text-center">
           <button 
             onClick={() => setFilterCategory("all")}
-            className="inline-flex items-center space-x-2 rounded-full border-2 border-gray-300 hover:border-[#7BBF6A] bg-white text-gray-700 hover:text-[#7BBF6A] px-8 py-3.5 text-base font-bold transition-all hover:shadow-md"
+            className="inline-flex items-center space-x-2 rounded-full border-2 border-gray-300 hover:border-[#4E7C59] bg-white text-gray-700 hover:text-[#4E7C59] px-8 py-3.5 text-base font-bold transition-all hover:shadow-md"
           >
             <span>✨ 瀏覽全部活動內容</span>
           </button>
