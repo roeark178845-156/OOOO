@@ -1,0 +1,6 @@
+{
+  "name": "樂活退休生活網",
+  "description": "專為退休樂齡族打造的幸福社群平台。一起旅行、一起學習、一起做公益、一起創造精彩人生新起點，找到健康、快樂與歸屬感。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
