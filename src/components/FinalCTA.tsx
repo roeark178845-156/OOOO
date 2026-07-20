@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { Heart, UserCheck, Sparkles, Phone, User, Calendar, Award, ShieldCheck, Download } from "lucide-react";
+import GlowingHeart from "./GlowingHeart";
 
 interface FinalCTAProps {
   isModalMode?: boolean;
@@ -142,8 +143,8 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
               
               {/* Message Column */}
               <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-rose-100 text-rose-500 text-2xl">
-                  ❤️
+                <div className="flex justify-center lg:justify-start">
+                  <GlowingHeart />
                 </div>
                 
                 <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
@@ -171,7 +172,7 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                   </div>
                   <div className="flex items-center space-x-2">
                     <Award className="h-4 w-4 text-yellow-500" />
-                    <span>入會即贈一次一日小旅行免費體驗券</span>
+                    <span>快和我們一起參與有趣的活動</span>
                   </div>
                 </div>
               </div>
@@ -257,18 +258,18 @@ export default function FinalCTA({ isModalMode = false, onCloseModal }: FinalCTA
                             key={opt.id}
                             type="button"
                             onClick={() => handleInterestToggle(opt.id)}
-                            className={`flex items-center justify-between p-3 rounded-xl border text-sm font-bold transition-all ${
+                            className={`flex items-center p-3 gap-2.5 rounded-xl border text-sm font-bold transition-all ${
                               isSel
                                 ? "bg-[#8CCAF7]/20 border-[#8CCAF7] text-blue-800"
                                 : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
                             }`}
                           >
-                            <span>{opt.label}</span>
-                            <span className={`h-4 w-4 rounded-full border flex items-center justify-center text-[9px] ${
+                            <span className={`h-4 w-4 rounded-full border flex items-center justify-center shrink-0 text-[9px] ${
                               isSel ? "bg-blue-600 border-blue-600 text-white" : "border-gray-400"
                             }`}>
                               {isSel ? "✓" : ""}
                             </span>
+                            <span className="whitespace-nowrap shrink-0">{opt.label}</span>
                           </button>
                         );
                       })}

@@ -33,6 +33,7 @@ export interface TimelineItem {
   title: string;
   description: string;
   details: string[];
+  image?: string;
 }
 
 export interface ChatMessage {

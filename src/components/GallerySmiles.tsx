@@ -233,6 +233,10 @@ export default function GallerySmiles() {
                     alt={item.title}
                     className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/images/fallback.jpg";
+                    }}
                   />
                   
                   {/* Golden Frame Ornament for gal-1 */}
@@ -364,6 +368,10 @@ export default function GallerySmiles() {
                     alt={selectedPhoto.title}
                     className="max-h-[500px] w-full object-contain"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/images/fallback.jpg";
+                    }}
                   />
                   {selectedPhoto.id === "gal-1" && (
                     <div className="absolute inset-0 pointer-events-none z-10 p-1">

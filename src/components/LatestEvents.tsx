@@ -88,6 +88,10 @@ export default function LatestEvents({
                     alt={evt.title}
                     className="absolute inset-0 h-full w-full object-cover"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/images/fallback.jpg";
+                    }}
                   />
                   {/* Category tag bubble */}
                   <span className="absolute top-3 left-3 rounded-xl bg-black/70 backdrop-blur-sm px-3 py-1.5 text-xs font-bold text-white tracking-wider flex items-center space-x-1 z-10">

@@ -50,11 +50,7 @@ export default function OurServices() {
                   </p>
                 </div>
 
-                <div className="pt-6 flex justify-end">
-                  <span className="text-xs font-bold text-gray-400 bg-white border border-gray-200 rounded-full px-3 py-1 shadow-inner select-none">
-                    LOHAS SERVICE
-                  </span>
-                </div>
+
               </div>
             );
           })}

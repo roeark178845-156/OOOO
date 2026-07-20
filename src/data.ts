@@ -18,7 +18,7 @@ export const BIG_FOUR_CATEGORIES = [
     badge: "走遍台灣・探索世界",
     description: "一起走遍台灣，探索世界，留下最美好的回憶。",
     buttonText: "查看更多旅遊",
-    details: ["慢活台灣二日遊", "樂齡海外包車深度之旅", "大自然健走與深呼吸", "五星級溫泉放鬆之旅"]
+    details: ["慢活台灣二日遊", "樂齡包車深度之旅", "大自然健走與深呼吸", "五星級溫泉放鬆之旅"]
   },
   {
     id: "course",
@@ -54,6 +54,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2024",
     title: "從陌生，到成為一家人",
     description: "開啟我們的幸福起點，攜手跨出第一步。",
+    image: "/src/assets/images/regenerated_image_1784520273351.png",
     details: [
       "✔️ 樂活學堂正式成立\n\n打造溫暖、安全的樂齡學習空間，\n陪伴每位學員快樂學習、\n自在交流，開啟精彩人生。",
       "✔️ 第一期課程熱烈展開\n\n推出書法、茶道等特色課程，\n吸引 80 位學員熱情參與，\n共同體驗文化之美。",
@@ -64,54 +65,23 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2025",
     title: "一起旅行，一起上課，一起歡笑",
     description: "足跡遍布寶島，學習路上相互陪伴、共同成長。",
+    image: "/src/assets/images/regenerated_image_1784519842178.jpg",
     details: [
-      "花東慢活鐵道三日遊\n\n首次舉辦 「花東慢活鐵道三日遊」，陪伴 30 多位學員一起踏上美好的旅程。沿著花東鐵道欣賞山海風光，漫步特色景點、品嚐在地美食，在歡笑與陪伴中認識新朋友，也留下人生中一段難忘的美好回憶。",
-      "樂齡智慧生活課程\n\n開設 「樂齡數位智慧手機班」 與 「活力舒壓瑜珈班」，陪伴學員學習智慧手機的日常應用，讓生活更加便利，也能隨時與親友分享生活點滴。同時透過規律運動與舒展身心，培養健康的生活習慣，享受充滿活力的每一天。",
-      "愛心公益送暖行動\n\n舉辦 「歲末愛心物資義賣暨偏鄉送暖」 公益活動，學員們齊心協力製作手工餅乾、書寫春聯，將一份份溫暖與祝福送到偏鄉社區。因為相信「分享，能讓幸福延續」，每一次公益行動，都讓愛與關懷持續傳遞。"
+      "花東慢活鐵道三日遊\n\n首次舉辦「花東慢活鐵道三日遊」，陪伴 30 多位學員一起踏上美好的旅程。沿著花東鐵道欣賞山海風光，漫步特色景點、品嚐在地美食，在歡笑與陪伴中認識新朋友，也留下人生中一段難忘的美好回憶。",
+      "樂齡智慧生活課程\n\n開設「樂齡數位智慧手機班」與「活力舒壓瑜珈班」，陪伴學員學習智慧手機的日常應用，讓生活更加便利，也能隨時與親友分享生活點滴。同時透過規律運動與舒展身心，培養健康的生活習慣，享受充滿活力的每一天。",
+      "愛心公益送暖行動\n\n舉辦「歲末愛心物資義賣暨偏鄉送暖」公益活動，學員們齊心協力製作手工餅乾、書寫春聯，將一份份溫暖與祝福送到偏鄉社區。因為相信「分享，能讓幸福延續」，每一次公益行動，都讓愛與關懷持續傳遞。"
     ]
   },
   {
     year: "2026",
     title: "精彩仍在持續，幸福每天都在發生",
     description: "走向更廣闊的世界，讓樂齡生活的每一天都閃閃發亮。",
+    image: "/images/regenerated_image_1784453703111.jpg",
     details: [
-      "⭕️ 春季賞櫻 × 慢活旅行\n\n規劃 「春季日本櫻花鐵道深度遊」\n及 「全台溫泉慢活之旅」。\n陪伴學員欣賞四季美景、享受溫泉時光，\n一路歡笑、一路交流，留下許多珍貴而難忘的回憶。",
-      "⭕️ 成果發表會\n\n年度成果發表會於演藝廳溫馨登場。\n學員們透過鋼琴演奏、舞蹈表演與作品展示，\n分享學習的喜悅，也展現自信與成長，\n在舞臺上留下屬於自己的精彩時刻。",
-      "⭕️ AI 智慧陪伴服務\n\n正式導入 AI 智慧陪伴服務。\n依照每位學員的興趣與喜好，\n推薦適合的課程、旅遊與活動，\n讓學習更輕鬆、生活更豐富，也讓每一天都充滿期待。"
+      "⭕️ 春季賞櫻 × 慢活旅行\n\n規劃「春季日本櫻花鐵道深度遊」及「全台溫泉慢活之旅」。陪伴學員欣賞四季美景、享受溫泉時光，一路歡笑、一路交流，留下許多珍貴而難忘的回憶。",
+      "⭕️ 成果發表會\n\n年度成果發表會於演藝廳溫馨登場。學員們透過鋼琴演奏、舞蹈表演與作品展示，分享學習的喜悅，也展現自信與成長，在舞台上留下屬於自己的精彩時刻。",
+      "⭕️ AI 智慧陪伴服務\n\n正式導入 AI 智慧陪伴服務。依照每位學員的興趣與喜好，推薦適合的課程、旅遊與活動，讓學習更輕鬆、生活更豐富，也讓每一天都充滿期待。"
     ]
-  }
-];
-
-export const WHY_CHOOSE_US = [
-  {
-    title: "專業活動規劃",
-    description: "資深樂齡規劃師設計，符合長者體力與步調，兼具趣味與深度。",
-    icon: "👍"
-  },
-  {
-    title: "安全旅遊安排",
-    description: "全程專業醫護或志工隨行，嚴選無障礙通道與安心飯店，讓家人最放心。",
-    icon: "🛡️"
-  },
-  {
-    title: "多元學習課程",
-    description: "從靜態藝術到動態養生，講師耐心、小班授課，讓學習毫無壓力。",
-    icon: "🎓"
-  },
-  {
-    title: "豐富公益活動",
-    description: "親自關懷社會、守護環境，在助人中找到生命新價值與成就感。",
-    icon: "🤝"
-  },
-  {
-    title: "快樂樂齡生活",
-    description: "打破孤單生活！天天有活動、週週有歡笑，重拾年輕時的心跳與活力。",
-    icon: "🌈"
-  },
-  {
-    title: "溫暖大家庭",
-    description: "我們不只是主辦單位，更是一起大笑、互相疼惜、陪伴彼此一輩子的家人。",
-    icon: "🏡"
   }
 ];
 
@@ -126,7 +96,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "搭乘頂級樂齡保姆車，慢遊涵碧步道，環湖遊艇導覽，入住友善飯店，輕鬆無壓力享受湖光山色。",
     slots: 12,
     maxSlots: 20,
-    image: "/src/assets/images/regenerated_image_1784452612252.jpg"
+    image: "/images/regenerated_image_1784452612252.jpg"
   },
   {
     id: "evt-2",
@@ -138,7 +108,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "漫步平緩無障礙步道賞花，隨後至古意茶堂，由專業茶師指導親手泡一壺好茶，品嚐手作養生綠豆糕。",
     slots: 6,
     maxSlots: 15,
-    image: "/src/assets/images/regenerated_image_1784451447745.jpg"
+    image: "/images/regenerated_image_1784451447745.jpg"
   },
   {
     id: "evt-3",
@@ -150,7 +120,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "免基礎！在輕鬆愉快的學習氛圍中，不僅能舒展筋骨、促進身心健康，更能結識志同道合的朋友，享受舞蹈帶來的快樂與成就感。",
     slots: 3,
     maxSlots: 8,
-    image: "/src/assets/images/regenerated_image_1784453142882.jpg"
+    image: "/images/regenerated_image_1784453142882.jpg"
   },
   {
     id: "evt-4",
@@ -162,7 +132,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "與樂活志工隊一起，將溫熱的愛心便當親手送到社區獨居長者家中，並陪他們聊天十分鐘，遞送社會溫馨。",
     slots: 15,
     maxSlots: 30,
-    image: "/src/assets/images/regenerated_image_1784454217381.jpg"
+    image: "/images/regenerated_image_1784454217381.jpg"
   }
 ];
 
@@ -171,7 +141,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-1",
     category: "travel",
     title: "2024 樂活旅遊 北部同樂會",
-    image: "/src/assets/images/regenerated_image_1784450990393.jpg",
+    image: "/images/regenerated_image_1784450990393.jpg",
     date: "2024-10",
     description: "特別感謝陳柏霖夥伴的熱情贊助，帶領北部樂活大家庭的長輩們慢活漫步，在秋高氣爽的山林中留下燦爛的幸福笑容！"
   },
@@ -179,15 +149,15 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-2",
     category: "course",
     title: "插花課：與美的初次相遇",
-    image: "/src/assets/images/regenerated_image_1784450993139.jpg",
+    image: "/images/regenerated_image_1784450993139.jpg",
     date: "2024-11",
-    description: "學員們神情專注地修剪花枝，在香氣中創作出專屬的花藝盆栽。"
+    description: "學員們神情專注地修剪花枝，在香氣中創作屬專門的花藝盆栽。"
   },
   {
     id: "gal-3",
     category: "party",
     title: "樂活關懷活動",
-    image: "/src/assets/images/regenerated_image_1784441825382.jpg",
+    image: "/images/regenerated_image_1784441825382.jpg",
     date: "2025-09",
     description: "關懷長輩出一份心意🥰，美味佳餚配上歡笑聲，真幸福！"
   },
@@ -195,7 +165,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-4",
     category: "service",
     title: "花蓮馬太鞍救災",
-    image: "/src/assets/images/regenerated_image_1784450998410.png",
+    image: "/src/assets/images/regenerated_image_1784525400236.png",
     date: "2025-11",
     description: "陳柏霖帶著夥伴們一起傳遞愛心，天災無情，人間有愛。每一份善意、每一次伸出援手，都成為受災鄉親重新站起來的重要力量。"
   },
@@ -203,7 +173,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-5",
     category: "service",
     title: "參與社區清潔活動",
-    image: "/src/assets/images/regenerated_image_1784451001652.png",
+    image: "/src/assets/images/regenerated_image_1784525403330.png",
     date: "2025-12",
     description: "許多志願參加的夥伴們一同為社區道路清潔出一份力，每一次的相聚，不只是一次活動，更是一份陪伴、一份溫暖。"
   },
@@ -211,7 +181,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-6",
     category: "exhibition",
     title: "學習成果發表：舞蹈課程",
-    image: "/src/assets/images/regenerated_image_1784453703111.jpg",
+    image: "/images/regenerated_image_1784474320016.png",
     date: "2026-05",
     description: "舞蹈課程結束後可自願參加成果發表會，展現自信的自己。"
   }
@@ -269,3 +239,37 @@ export const FOOTER_INFO = {
     facebook: "👥 臉書粉絲專頁：樂活老後・精彩生活學堂"
   }
 };
+
+export const WHY_CHOOSE_US = [
+  {
+    icon: "🩺",
+    title: "醫護志工全程護航",
+    description: "旅遊、大型活動全程皆有醫護背景志工或專業救護人員隨護，隨時關注學員身體狀況，安心無憂。"
+  },
+  {
+    icon: "🧘",
+    title: "100% 樂齡客製步調",
+    description: "不趕行程、少走階梯、慢活漫遊，隨處有休息區與洗手間，真正適合樂齡夥伴的專屬節奏。"
+  },
+  {
+    icon: "🏠",
+    title: "溫馨如家的學習氛圍",
+    description: "小班制教學，講師親切溫柔有耐心。課堂上互相陪伴、課後攜手旅遊，結識相伴一生的真摯摯友。"
+  },
+  {
+    icon: "🚍",
+    title: "頂級無障礙貼心接送",
+    description: "精選友善低底盤巴士或頂級樂齡保姆車，全程無縫接軌，為行動較不便的夥伴提供最周延的照顧。"
+  },
+  {
+    icon: "🔒",
+    title: "國家級最高保險額度",
+    description: "所有活動與課程皆投保足額責任險與意外險，並與特約醫療機構建立緊急連通機制，全方位安全滴水不漏。"
+  },
+  {
+    icon: "🌟",
+    title: "豐富多采的生命舞台",
+    description: "提供大型年度成果展、畫展、音樂會，讓每位學員重新站在聚光燈下，展現自信，活出精彩老後！"
+  }
+];
+

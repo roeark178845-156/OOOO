@@ -1,4 +1,5 @@
 import { Compass, UserPlus, Heart, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 
 interface HeroProps {
   onScrollToSection: (id: string) => void;
@@ -25,12 +26,67 @@ export default function Hero({ onScrollToSection, onOpenJoinModal }: HeroProps) 
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
-              退休，不是人生的終點，
-              <br />
-              <span className="bg-gradient-to-r from-[#4E7C59] to-[#D8A44C] bg-clip-text text-transparent">
-                慢活人生的新起點。
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1C2E21] leading-tight tracking-tight select-none">
+              {/* Phrase 1: Animated letter by letter in continuous loop */}
+              <span className="inline-block mb-2">
+                {"退休 不是人生的終點".split("").map((char, index) => (
+                  <motion.span
+                    key={`char1-${index}`}
+                    className="inline-block"
+                    animate={{
+                      opacity: [0, 1, 1, 0, 0],
+                      y: [15, 0, 0, -15, 15],
+                      filter: ["blur(4px)", "blur(0px)", "blur(0px)", "blur(4px)", "blur(4px)"],
+                    }}
+                    transition={{
+                      duration: 8,
+                      times: [0, 0.12, 0.75, 0.85, 1],
+                      repeat: Infinity,
+                      delay: index * 0.08,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
               </span>
+              <br />
+              {/* Phrase 2: Shimmering premium gradient and staggered animation in continuous loop */}
+              <motion.span 
+                className="inline-block bg-gradient-to-r from-[#3E6B48] via-[#D8A44C] to-[#3E6B48] bg-clip-text text-transparent"
+                style={{
+                  backgroundSize: "200% auto",
+                }}
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                {"慢活人生的新起點。".split("").map((char, index) => (
+                  <motion.span
+                    key={`char2-${index}`}
+                    className="inline-block"
+                    animate={{
+                      opacity: [0, 1, 1, 0, 0],
+                      y: [15, 0, 0, -15, 15],
+                      filter: ["blur(4px)", "blur(0px)", "blur(0px)", "blur(4px)", "blur(4px)"],
+                    }}
+                    transition={{
+                      duration: 8,
+                      times: [0, 0.12, 0.75, 0.85, 1],
+                      repeat: Infinity,
+                      delay: 0.9 + index * 0.08,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.span>
             </h1>
 
             {/* Subtitle */}
@@ -179,10 +235,14 @@ export default function Hero({ onScrollToSection, onOpenJoinModal }: HeroProps) 
                     {/* Crop of senior couple */}
                     <div className="h-28 w-28 rounded-full border-4 border-amber-100 overflow-hidden shadow-md bg-[#FAF8F3]">
                       <img
-                        src="/src/assets/images/regenerated_image_1784456430852.png"
+                        src="/src/assets/images/regenerated_image_1784512840038.png"
                         alt="樂活退休夫婦"
-                        className="h-full w-full object-cover scale-150 opacity-50"
+                        className="h-full w-full object-cover scale-110 opacity-95"
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = "/images/fallback.jpg";
+                        }}
                       />
                     </div>
                   </div>

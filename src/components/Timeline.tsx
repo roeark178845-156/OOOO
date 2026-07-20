@@ -92,6 +92,18 @@ export default function Timeline() {
                         })}
                       </div>
 
+                      {/* Mobile Image (hidden on md+) */}
+                      {item.image && (
+                        <div className="mt-6 block md:hidden relative overflow-hidden rounded-2xl border border-[#E6E2DA] p-1.5 bg-white">
+                          <img 
+                            src={item.image} 
+                            alt={item.title} 
+                            className="w-full h-52 object-cover rounded-xl"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      )}
+
                       {/* Hearts container */}
                       <div className="flex justify-end space-x-1 mt-6 text-rose-500/80">
                         <Heart className="h-4.5 w-4.5 fill-current" />
@@ -102,8 +114,19 @@ export default function Timeline() {
                     </div>
                   </div>
 
-                  {/* Empty placeholder half column */}
-                  <div className="hidden md:block w-1/2"></div>
+                  {/* Empty placeholder half column or Desktop Image */}
+                  <div className="hidden md:block w-1/2 px-8">
+                    {item.image && (
+                      <div className="relative overflow-hidden rounded-3xl border border-[#E6E2DA] shadow-md bg-white p-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] group">
+                        <img 
+                          src={item.image} 
+                          alt={item.title} 
+                          className="w-full h-[360px] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    )}
+                  </div>
 
                 </div>
               );

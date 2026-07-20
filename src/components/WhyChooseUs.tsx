@@ -1,5 +1,7 @@
 import { CheckCircle2, ShieldCheck, Milestone } from "lucide-react";
 import { WHY_CHOOSE_US } from "../data";
+import ElderlyHandshake from "./ElderlyHandshake";
+import AnimatedShield from "./AnimatedShield";
 
 export default function WhyChooseUs() {
   return (
@@ -8,9 +10,10 @@ export default function WhyChooseUs() {
         
         {/* Section Header */}
         <div className="text-center space-y-4">
+          <ElderlyHandshake />
           <div className="flex justify-center">
-            <span className="rounded-full bg-green-100 px-4 py-1.5 text-sm font-bold text-[#4E7C59]">
-              🤝 我們的承諾與堅持
+            <span className="rounded-full bg-[#E8F2EA] px-8 py-3 text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#4E7C59] leading-none tracking-tight select-none shadow-sm border border-[#D5E6D8]">
+              我們的承諾與堅持
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
@@ -50,10 +53,10 @@ export default function WhyChooseUs() {
         {/* Highlight footer bar in WhyChooseUs */}
         <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#4E7C59] to-[#D8A44C] p-[2px] shadow-md">
           <div className="rounded-[22px] bg-white px-6 py-6 md:py-10 text-center flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center space-x-6 text-left">
-              <span className="text-[9.375rem] leading-none select-none shrink-0">🛡️</span>
+            <div className="flex flex-col items-center text-center md:flex-row md:text-left md:items-center md:space-x-6 space-y-4 md:space-y-0">
+              <AnimatedShield />
               <div>
-                <p className="text-3xl font-black text-gray-900 leading-tight">所有活動皆投保足額旅行業責任險與公共意外責任險</p>
+                <p className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">所有活動皆投保足額旅行業責任險與公共意外責任險</p>
                 <p className="text-lg text-gray-600 font-bold mt-2">專業認證樂齡安全領隊全程隨護，打造 100% 零事故安心保障</p>
               </div>
             </div>

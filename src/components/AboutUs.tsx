@@ -1,5 +1,6 @@
 import { Smile, HeartHandshake, ShieldCheck, Milestone } from "lucide-react";
 import { COMPANY_ABOUT } from "../data";
+import { motion } from "motion/react";
 
 export default function AboutUs() {
   const coreValues = [
@@ -42,12 +43,27 @@ export default function AboutUs() {
             {COMPANY_ABOUT.subtitle}
           </p>
 
-          {/* Warm story letter block */}
-          <div className="mt-8 rounded-3xl bg-[#FAF8F3] p-8 md:p-12 border border-[#E6E2DA] shadow-sm relative overflow-hidden">
-            {/* Soft decorative background leaf */}
-            <div className="absolute top-0 right-0 h-24 w-24 translate-x-6 -translate-y-6 rounded-full bg-[#4E7C59]/5"></div>
-            
-            <div className="space-y-6 text-lg sm:text-xl text-gray-700 font-medium leading-relaxed">
+          {/* Warm story letter block - Modernized with Premium Accent and Inner Border Frame */}
+          <motion.div 
+            className="mt-10 rounded-3xl bg-gradient-to-br from-[#FAF8F3] to-[#F3EDE3] p-8 md:p-12 border border-[#E6E2DA] shadow-[0_20px_50px_rgba(78,124,89,0.06)] relative overflow-hidden group hover:shadow-[0_24px_60px_rgba(78,124,89,0.12)] transition-all duration-500"
+            whileHover={{ y: -4 }}
+          >
+            {/* Elegant Modern Design Elements */}
+            {/* 1. Subtle gold/emerald gradient glow on top border */}
+            <div className="absolute top-0 inset-x-0 h-[4px] bg-gradient-to-r from-[#4E7C59] via-[#D8A44C] to-[#4E7C59]" />
+
+            {/* 2. Delicate dashed inner frame for high-end plaque look */}
+            <div className="absolute inset-3 rounded-[20px] border border-dashed border-[#4E7C59]/15 pointer-events-none group-hover:border-[#4E7C59]/30 transition-colors duration-500" />
+
+            {/* 3. Soft organic decorative light green backdrop ring */}
+            <div className="absolute top-0 right-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-[#4E7C59]/8 blur-xl group-hover:scale-110 transition-transform duration-700 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 h-32 w-32 -translate-x-8 translate-y-8 rounded-full bg-[#D8A44C]/8 blur-xl group-hover:scale-110 transition-transform duration-700 pointer-events-none" />
+
+            {/* Decorative Quote Marks to focus eyes and look editorial */}
+            <div className="absolute top-5 left-6 text-7xl text-[#4E7C59]/10 font-serif select-none pointer-events-none">“</div>
+            <div className="absolute bottom-1 right-6 text-7xl text-[#4E7C59]/10 font-serif select-none pointer-events-none">”</div>
+
+            <div className="relative z-10 space-y-6 text-lg sm:text-xl text-gray-700 font-medium leading-relaxed px-2">
               {COMPANY_ABOUT.paragraph.map((p, idx) => (
                 <p key={idx} className="tracking-wide">
                   {p}
@@ -55,11 +71,11 @@ export default function AboutUs() {
               ))}
             </div>
 
-            <div className="mt-8 flex justify-center items-center space-x-2 text-[#4E7C59]">
-              <Milestone className="h-5 w-5" />
-              <span className="text-sm font-bold tracking-widest">樂活大家庭・一路溫馨相伴</span>
+            <div className="relative z-10 mt-8 flex justify-center items-center space-x-2 text-[#4E7C59]">
+              <Milestone className="h-5 w-5 animate-pulse text-[#4E7C59]" />
+              <span className="text-sm font-bold tracking-widest text-[#4E7C59] uppercase">樂活大家庭・一路溫馨相伴</span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Core Values Cards Grid */}
