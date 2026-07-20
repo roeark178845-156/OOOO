@@ -235,7 +235,7 @@ export default function Hero({ onScrollToSection, onOpenJoinModal }: HeroProps) 
                     {/* Crop of senior couple */}
                     <div className="h-28 w-28 rounded-full border-4 border-amber-100 overflow-hidden shadow-md bg-[#FAF8F3]">
                       <img
-                        src="/src/assets/images/regenerated_image_1784512840038.png"
+                        src="/images/regenerated_image_1784512840038.png"
                         alt="樂活退休夫婦"
                         className="h-full w-full object-cover scale-110 opacity-95"
                         referrerPolicy="no-referrer"

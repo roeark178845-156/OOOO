@@ -54,7 +54,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2024",
     title: "從陌生，到成為一家人",
     description: "開啟我們的幸福起點，攜手跨出第一步。",
-    image: "/src/assets/images/regenerated_image_1784520273351.png",
+    image: "/images/regenerated_image_1784520273351.png",
     details: [
       "✔️ 樂活學堂正式成立\n\n打造溫暖、安全的樂齡學習空間，\n陪伴每位學員快樂學習、\n自在交流，開啟精彩人生。",
       "✔️ 第一期課程熱烈展開\n\n推出書法、茶道等特色課程，\n吸引 80 位學員熱情參與，\n共同體驗文化之美。",
@@ -65,7 +65,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2025",
     title: "一起旅行，一起上課，一起歡笑",
     description: "足跡遍布寶島，學習路上相互陪伴、共同成長。",
-    image: "/src/assets/images/regenerated_image_1784519842178.jpg",
+    image: "/images/regenerated_image_1784519842178.jpg",
     details: [
       "花東慢活鐵道三日遊\n\n首次舉辦「花東慢活鐵道三日遊」，陪伴 30 多位學員一起踏上美好的旅程。沿著花東鐵道欣賞山海風光，漫步特色景點、品嚐在地美食，在歡笑與陪伴中認識新朋友，也留下人生中一段難忘的美好回憶。",
       "樂齡智慧生活課程\n\n開設「樂齡數位智慧手機班」與「活力舒壓瑜珈班」，陪伴學員學習智慧手機的日常應用，讓生活更加便利，也能隨時與親友分享生活點滴。同時透過規律運動與舒展身心，培養健康的生活習慣，享受充滿活力的每一天。",
@@ -165,7 +165,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-4",
     category: "service",
     title: "花蓮馬太鞍救災",
-    image: "/src/assets/images/regenerated_image_1784525400236.png",
+    image: "/images/regenerated_image_1784525400236.png",
     date: "2025-11",
     description: "陳柏霖帶著夥伴們一起傳遞愛心，天災無情，人間有愛。每一份善意、每一次伸出援手，都成為受災鄉親重新站起來的重要力量。"
   },
@@ -173,7 +173,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-5",
     category: "service",
     title: "參與社區清潔活動",
-    image: "/src/assets/images/regenerated_image_1784525403330.png",
+    image: "/images/regenerated_image_1784525403330.png",
     date: "2025-12",
     description: "許多志願參加的夥伴們一同為社區道路清潔出一份力，每一次的相聚，不只是一次活動，更是一份陪伴、一份溫暖。"
   },
