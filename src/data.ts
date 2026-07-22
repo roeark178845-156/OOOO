@@ -54,7 +54,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2024",
     title: "從陌生，到成為一家人",
     description: "開啟我們的幸福起點，攜手跨出第一步。",
-    image: "/images/regenerated_image_1784520273351.png",
+    image: "/images/travel-2024.jpg",
     details: [
       "✔️ 樂活學堂正式成立\n\n打造溫暖、安全的樂齡學習空間，\n陪伴每位學員快樂學習、\n自在交流，開啟精彩人生。",
       "✔️ 第一期課程熱烈展開\n\n推出書法、茶道等特色課程，\n吸引 80 位學員熱情參與，\n共同體驗文化之美。",
@@ -65,7 +65,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2025",
     title: "一起旅行，一起上課，一起歡笑",
     description: "足跡遍布寶島，學習路上相互陪伴、共同成長。",
-    image: "/images/regenerated_image_1784688741548.jpg",
+    image: "/images/travel-2025.jpg",
     details: [
       "花東慢活鐵道三日遊\n\n首次舉辦「花東慢活鐵道三日遊」，陪伴 30 多位學員一起踏上美好的旅程。沿著花東鐵道欣賞山海風光，漫步特色景點、品嚐在地美食，在歡笑與陪伴中認識新朋友，也留下人生中一段難忘的美好回憶。",
       "樂齡智慧生活課程\n\n開設「樂齡數位智慧手機班」與「活力舒壓瑜珈班」，陪伴學員學習智慧手機的日常應用，讓生活更加便利，也能隨時與親友分享生活點滴。同時透過規律運動與舒展身心，培養健康的生活習慣，享受充滿活力的每一天。",
@@ -76,7 +76,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     year: "2026",
     title: "精彩仍在持續，幸福每天都在發生",
     description: "走向更廣闊的世界，讓樂齡生活的每一天都閃閃發亮。",
-    image: "/images/regenerated_image_1784453703111.jpg",
+    image: "/images/travel-2026.jpg",
     details: [
       "⭕️ 春季賞櫻 × 慢活旅行\n\n規劃「春季日本櫻花鐵道深度遊」及「全台溫泉慢活之旅」。陪伴學員欣賞四季美景、享受溫泉時光，一路歡笑、一路交流，留下許多珍貴而難忘的回憶。",
       "⭕️ 成果發表會\n\n年度成果發表會於演藝廳溫馨登場。學員們透過鋼琴演奏、舞蹈表演與作品展示，分享學習的喜悅，也展現自信與成長，在舞台上留下屬於自己的精彩時刻。",
@@ -96,7 +96,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "搭乘頂級樂齡保姆車，慢遊涵碧步道，環湖遊艇導覽，入住友善飯店，輕鬆無壓力享受湖光山色。",
     slots: 12,
     maxSlots: 20,
-    image: "/images/regenerated_image_1784452612252.jpg"
+    image: "/images/travel-2027.jpg"
   },
   {
     id: "evt-2",
@@ -108,7 +108,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "漫步平緩無障礙步道賞花，隨後至古意茶堂，由專業茶師指導親手泡一壺好茶，品嚐手作養生綠豆糕。",
     slots: 6,
     maxSlots: 15,
-    image: "/images/regenerated_image_1784451447745.jpg"
+    image: "/images/travel-2028.jpg"
   },
   {
     id: "evt-3",
@@ -120,7 +120,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "免基礎！在輕鬆愉快的學習氛圍中，不僅能舒展筋骨、促進身心健康，更能結識志同道合的朋友，享受舞蹈帶來的快樂與成就感。",
     slots: 3,
     maxSlots: 8,
-    image: "/images/regenerated_image_1784453142882.jpg"
+    image: "/images/travel-2029.jpg"
   },
   {
     id: "evt-4",
@@ -132,7 +132,7 @@ export const LATEST_EVENTS: EventItem[] = [
     description: "與樂活志工隊一起，將溫熱的愛心便當親手送到社區獨居長者家中，並陪他們聊天十分鐘，遞送社會溫馨。",
     slots: 15,
     maxSlots: 30,
-    image: "/images/regenerated_image_1784454217381.jpg"
+    image: "/images/travel-2030.jpg"
   }
 ];
 
@@ -141,7 +141,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-1",
     category: "travel",
     title: "2024 樂活旅遊 北部同樂會",
-    image: "/images/regenerated_image_1784450990393.jpg",
+    image: "/images/travel-2031.jpg",
     date: "2024-10",
     description: "特別感謝陳柏霖夥伴的熱情贊助，帶領北部樂活大家庭的長輩們慢活漫步，在秋高氣爽的山林中留下燦爛的幸福笑容！"
   },
@@ -149,7 +149,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-2",
     category: "course",
     title: "插花課：與美的初次相遇",
-    image: "/images/regenerated_image_1784450993139.jpg",
+    image: "/images/travel-2032.jpg",
     date: "2024-11",
     description: "學員們神情專注地修剪花枝，在香氣中創作屬專門的花藝盆栽。"
   },
@@ -157,7 +157,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-3",
     category: "party",
     title: "樂活關懷活動",
-    image: "/images/regenerated_image_1784441825382.jpg",
+    image: "/images/travel-2033.jpg",
     date: "2025-09",
     description: "關懷長輩出一份心意🥰，美味佳餚配上歡笑聲，真幸福！"
   },
@@ -165,7 +165,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-4",
     category: "service",
     title: "花蓮馬太鞍救災",
-    image: "/images/regenerated_image_1784525400236.png",
+    image: "/images/travel-2034.jpg",
     date: "2025-11",
     description: "陳柏霖帶著夥伴們一起傳遞愛心，天災無情，人間有愛。每一份善意、每一次伸出援手，都成為受災鄉親重新站起來的重要力量。"
   },
@@ -173,7 +173,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-5",
     category: "service",
     title: "參與社區清潔活動",
-    image: "/images/regenerated_image_1784525403330.png",
+    image: "/images/travel-2035.jpg",
     date: "2025-12",
     description: "許多志願參加的夥伴們一同為社區道路清潔出一份力，每一次的相聚，不只是一次活動，更是一份陪伴、一份溫暖。"
   },
@@ -181,7 +181,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
     id: "gal-6",
     category: "exhibition",
     title: "學習成果發表：舞蹈課程",
-    image: "/images/regenerated_image_1784474320016.png",
+    image: "/images/travel-2036.jpg",
     date: "2026-05",
     description: "舞蹈課程結束後可自願參加成果發表會，展現自信的自己。"
   }
