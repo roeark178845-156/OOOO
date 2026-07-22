@@ -19,6 +19,7 @@ import {
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import ImageSlider from "./components/ImageSlider";
 import AboutUs from "./components/AboutUs";
 import BigFourCategories from "./components/BigFourCategories";
 import Timeline from "./components/Timeline";
@@ -102,6 +103,9 @@ export default function App() {
           onScrollToSection={handleScrollToSection}
           onOpenJoinModal={() => setIsJoinModalOpen(true)}
         />
+
+        {/* Hero Slideshow */}
+        <ImageSlider />
 
         {/* 3. About Us Section (Section 2) */}
         <AboutUs />
