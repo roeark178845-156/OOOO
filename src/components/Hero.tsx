@@ -232,19 +232,46 @@ export default function Hero({ onScrollToSection, onOpenJoinModal }: HeroProps) 
                       📓
                     </span>
                     
-                    {/* Crop of senior couple */}
-                    <div className="h-28 w-28 rounded-full border-4 border-amber-100 overflow-hidden shadow-md bg-[#FAF8F3]">
-                      <img
-                        src="/images-new/travel-2037.jpg"
-                        alt="樂活退休夫婦"
-                        className="h-full w-full object-cover scale-110 opacity-95"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = "/images-new/fallback.jpg";
-                        }}
-                      />
-                    </div>
+                    {/* Animated Senior Couple Holding Hands */}
+                    <motion.div 
+                      className="relative h-28 w-28 rounded-full border-4 border-amber-200 overflow-hidden shadow-lg bg-gradient-to-tr from-amber-100 via-orange-100 to-rose-100 flex flex-col items-center justify-center cursor-pointer select-none"
+                      animate={{ scale: [1, 1.04, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                      title="手牽手 伴一生"
+                    >
+                      {/* Floating hearts animation */}
+                      <motion.span
+                        className="absolute text-rose-500 text-sm font-bold z-10"
+                        animate={{ y: [10, -22], opacity: [0, 1, 0], x: [-3, 3, -3] }}
+                        transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut" }}
+                        style={{ top: '22%' }}
+                      >
+                        💖
+                      </motion.span>
+                      
+                      <motion.span
+                        className="absolute text-amber-500 text-xs font-bold z-10"
+                        animate={{ y: [12, -18], opacity: [0, 1, 0], x: [4, -4, 4] }}
+                        transition={{ repeat: Infinity, duration: 2.8, ease: "easeOut", delay: 1 }}
+                        style={{ top: '25%' }}
+                      >
+                        ✨
+                      </motion.span>
+
+                      {/* Holding hands animated figures / emoji */}
+                      <motion.div
+                        className="text-5xl flex items-center justify-center relative z-0 mt-1"
+                        animate={{ y: [0, -3, 0], rotate: [-2, 2, -2] }}
+                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                      >
+                        👫
+                      </motion.div>
+
+                      {/* Hand-in-hand badge overlay */}
+                      <div className="absolute bottom-1 bg-amber-900/85 text-amber-100 text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+                        手牽手 樂生活
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
 

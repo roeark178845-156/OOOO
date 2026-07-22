@@ -100,6 +100,10 @@ export default function Timeline() {
                             alt={item.title} 
                             className="w-full h-52 object-cover rounded-xl"
                             referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "/images/travel-001.jpg";
+                            }}
                           />
                         </div>
                       )}
@@ -123,6 +127,10 @@ export default function Timeline() {
                           alt={item.title} 
                           className="w-full h-[360px] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = "/images/travel-001.jpg";
+                          }}
                         />
                       </div>
                     )}

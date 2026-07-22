@@ -235,7 +235,7 @@ export default function GallerySmiles() {
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/images-new/fallback.jpg";
+                      e.currentTarget.src = "/images/travel-001.jpg";
                     }}
                   />
                   
@@ -370,7 +370,7 @@ export default function GallerySmiles() {
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/images-new/fallback.jpg";
+                      e.currentTarget.src = "/images/travel-001.jpg";
                     }}
                   />
                   {selectedPhoto.id === "gal-1" && (
