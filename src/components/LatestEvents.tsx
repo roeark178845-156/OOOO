@@ -90,7 +90,7 @@ export default function LatestEvents({
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/images/fallback.jpg";
+                      e.currentTarget.src = "/images-new/fallback.jpg";
                     }}
                   />
                   {/* Category tag bubble */}

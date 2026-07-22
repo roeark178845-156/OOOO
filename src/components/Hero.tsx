@@ -235,13 +235,13 @@ export default function Hero({ onScrollToSection, onOpenJoinModal }: HeroProps) 
                     {/* Crop of senior couple */}
                     <div className="h-28 w-28 rounded-full border-4 border-amber-100 overflow-hidden shadow-md bg-[#FAF8F3]">
                       <img
-                        src="/images/travel-2037.jpg"
+                        src="/images-new/travel-2037.jpg"
                         alt="樂活退休夫婦"
                         className="h-full w-full object-cover scale-110 opacity-95"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
                           e.currentTarget.onerror = null;
-                          e.currentTarget.src = "/images/fallback.jpg";
+                          e.currentTarget.src = "/images-new/fallback.jpg";
                         }}
                       />
                     </div>
