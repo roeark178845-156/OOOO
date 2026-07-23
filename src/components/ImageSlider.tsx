@@ -4,22 +4,22 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/travel-014.jpg",
+    image: "/images/charity-01.jpg",
     title: "樂活愛心團隊集結出發",
     description: "陳柏霖攜手志工團隊夥伴共同投入公益服務，以實際行動募集與捐贈愛心物資，將溫暖送到需要幫助的角落。"
   },
   {
-    image: "/images/travel-015.jpg",
+    image: "/images/charity-02.jpg",
     title: "愛心物資整備完成",
     description: "一箱箱物資，不只是生活用品，更是一份份來自社會的關懷與祝福，期待為更多家庭帶來溫暖與希望。"
   },
   {
-    image: "/images/travel-016.jpg",
+    image: "/images/charity-03.jpg",
     title: "攜手走入社區服務",
     description: "志工們親自將愛心物資送達受助單位，在陪伴與關懷中傳遞溫暖，也讓公益成為連結彼此的重要力量。"
   },
   {
-    image: "/images/travel-017.jpg",
+    image: "/images/charity-04.jpg",
     title: "愛心持續延續",
     description: "每一次捐贈都是新的開始，每一次付出都讓社會多一分溫暖。樂活愛心團隊將持續攜手更多夥伴，讓善的力量不斷傳遞，照亮更多需要幫助的人。"
   }
@@ -90,6 +90,7 @@ export default function ImageSlider() {
           >
             {/* Ken Burns Scale Effect on Image (1.08 -> 1.0 in 4s) */}
             <motion.img
+              key={currentSlide.image}
               src={currentSlide.image}
               alt={currentSlide.title}
               initial={{ scale: 1.08 }}
@@ -97,10 +98,6 @@ export default function ImageSlider() {
               transition={{ duration: 4.0, ease: "easeOut" }}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = "/images/travel-001.jpg";
-              }}
             />
 
             {/* Gradient Overlay for Text Legibility (~40% bottom height) */}
