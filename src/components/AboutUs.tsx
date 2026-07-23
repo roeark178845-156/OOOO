@@ -96,7 +96,7 @@ export default function AboutUs() {
               {/* Photo Area 4:5 Aspect Ratio */}
               <div className="aspect-[4/5] w-full relative overflow-hidden bg-stone-200">
                 <img
-                  src="/chen.jpg"
+                  src="/images/chen.jpg"
                   alt="陳柏霖"
                   className="w-full h-full object-cover object-[20%_center]"
                 />
@@ -168,7 +168,7 @@ export default function AboutUs() {
               {/* Photo Area 4:5 Aspect Ratio */}
               <div className="aspect-[4/5] w-full relative overflow-hidden bg-stone-200">
                 <img
-                  src="/sun.jpg"
+                  src="/images/sun.jpg"
                   alt="孫潔馨"
                   className="w-full h-full object-cover object-center"
                 />
