@@ -1,8 +1,11 @@
-import { Smile, HeartHandshake, ShieldCheck, Milestone } from "lucide-react";
+import { Smile, HeartHandshake, ShieldCheck, Milestone, ChevronDown, ChevronUp } from "lucide-react";
 import { COMPANY_ABOUT } from "../data";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
 
 export default function AboutUs() {
+  const [isChenExpanded, setIsChenExpanded] = useState(false);
+
   const coreValues = [
     {
       title: "找到健康",
@@ -76,6 +79,121 @@ export default function AboutUs() {
               <span className="text-sm font-bold tracking-widest text-[#4E7C59] uppercase">樂活大家庭・一路溫馨相伴</span>
             </div>
           </motion.div>
+
+          {/* Guiding sentence below concept card */}
+          <div className="mt-12 text-center">
+            <p className="text-lg sm:text-xl font-bold text-[#2d6a4f] tracking-wide">
+              用陪伴與專業，讓每一段樂齡生活更加精彩。
+            </p>
+          </div>
+
+          {/* Team Member Cards Grid */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
+            {/* Card 1: 陳柏霖 */}
+            <motion.div
+              className="rounded-[24px] bg-[#FAF8F3] border border-[#E6E2DA] shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
+            >
+              {/* Photo Area 4:5 Aspect Ratio */}
+              <div className="aspect-[4/5] w-full relative overflow-hidden bg-stone-200">
+                <img
+                  src="/chen.jpg"
+                  alt="陳柏霖"
+                  className="w-full h-full object-cover object-[20%_center]"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FAF8F3] to-transparent pointer-events-none" />
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 flex flex-col flex-grow text-left">
+                <div className="mb-3">
+                  <h3 className="text-[22px] sm:text-[26px] font-bold text-[#2d6a4f] leading-snug">
+                    陳柏霖
+                  </h3>
+                  <p className="text-[#D8A44C] font-semibold text-base mt-1">
+                    創辦人 / 樂齡生活推手
+                  </p>
+                </div>
+
+                <p className="text-stone-700 leading-[1.8] text-base font-normal">
+                  自 2024 年投入樂齡課程與旅遊活動推廣，秉持「學習沒有年齡限制，陪伴讓人生更加精彩」的理念，致力整合學習、健康、休閒、旅行與公益資源，陪伴每一位長者持續成長、拓展視野，享受充實而有意義的樂齡人生。
+                </p>
+
+                {/* Expand Toggle Button */}
+                <div className="mt-4 pt-2">
+                  <button
+                    onClick={() => setIsChenExpanded(!isChenExpanded)}
+                    className="inline-flex items-center gap-1.5 text-[#2d6a4f] hover:text-[#1b4332] font-bold text-base transition-colors focus:outline-none"
+                  >
+                    <span>{isChenExpanded ? "收起完整介紹" : "閱讀完整介紹"}</span>
+                    {isChenExpanded ? (
+                      <ChevronUp className="w-5 h-5 text-[#2d6a4f]" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-[#2d6a4f]" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Expandable Full Bio */}
+                <AnimatePresence>
+                  {isChenExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
+                      className="overflow-hidden mt-4 pt-4 border-t border-[#E6E2DA] text-stone-700 leading-[1.8] text-base space-y-4 text-left"
+                    >
+                      <p>
+                        自 2024 年投入樂齡課程與旅遊活動推廣以來，陳柏霖始終秉持著「學習沒有年齡限制，陪伴讓人生更加精彩」的理念，致力於打造結合學習、健康、休閒與旅行的樂齡生活平台，希望陪伴每一位長者在人生不同階段持續成長、保持健康、拓展視野，享受充實且有意義的第二人生。
+                      </p>
+                      <p>
+                        陳柏霖深信，退休不是人生的終點，而是另一段精彩旅程的開始。透過多元樂齡課程、健康促進、才藝學習、文化體驗，以及精心規劃的國內外旅遊活動，讓長者在學習中成長，在旅行中探索，在交流中建立友誼，不僅提升身心健康，也讓生活更加豐富精彩，留下珍貴的人生回憶。
+                      </p>
+                      <p>
+                        多年來，陳柏霖始終以陪伴與關懷為核心，相信真正的樂齡教育，不只是知識的傳遞，更是幸福生活的實踐。無論是在課堂上共同學習，或是在旅途中攜手同行，都希望讓每一位長者感受到被尊重、被關心、被需要，在每一次課程中收穫成長，在每一趟旅行中收穫感動，在每一次相聚中收穫快樂。
+                      </p>
+                      <p>
+                        未來，陳柏霖將持續整合樂齡教育、健康促進、休閒旅遊、文化體驗、公益關懷、世代共學及多元學習資源，打造更完善、更具溫度的樂齡平台，陪伴每一位長者走出家門、走向人群、走進世界，讓學習成為生活的一部分，讓旅行成為人生最美的風景，共同創造健康、快樂、幸福且充滿回憶的樂齡人生。
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+
+            {/* Card 2: 孫潔馨 */}
+            <motion.div
+              className="rounded-[24px] bg-[#FAF8F3] border border-[#E6E2DA] shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
+            >
+              {/* Photo Area 4:5 Aspect Ratio */}
+              <div className="aspect-[4/5] w-full relative overflow-hidden bg-stone-200">
+                <img
+                  src="/sun.jpg"
+                  alt="孫潔馨"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FAF8F3] to-transparent pointer-events-none" />
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 flex flex-col flex-grow text-left">
+                <div className="mb-3">
+                  <h3 className="text-[22px] sm:text-[26px] font-bold text-[#2d6a4f] leading-snug">
+                    孫潔馨
+                  </h3>
+                  <p className="text-[#D8A44C] font-semibold text-base mt-1">
+                    樂齡課程與旅遊企劃
+                  </p>
+                </div>
+
+                <div className="text-stone-700 leading-[1.8] text-base font-normal space-y-3">
+                  <p>大家好，我是潔馨，很高興有機會陪伴大家一起學習、一起旅行！</p>
+                  <p>我負責規劃樂齡課程與旅遊活動，希望讓每一位朋友都能在輕鬆愉快的氛圍中學習新知、探索美景、認識新朋友，讓生活更加精彩、有趣。</p>
+                  <p>期待在樂活學堂與大家相見，一起把每一天都過得充實又快樂，創造屬於我們的美好回憶！🌸</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Core Values Cards Grid */}
