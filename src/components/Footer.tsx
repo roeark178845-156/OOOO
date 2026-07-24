@@ -74,6 +74,10 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 <Mail className="h-4.5 w-4.5 text-[#D8A44C]" />
                 <span>{FOOTER_INFO.contact.email}</span>
               </div>
+              <div className="flex items-center space-x-2">
+                <MessageCircle className="h-4.5 w-4.5 text-[#D8A44C]" />
+                <span>{FOOTER_INFO.contact.line}</span>
+              </div>
             </div>
           </div>
 

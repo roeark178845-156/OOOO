@@ -234,8 +234,8 @@ export const FOOTER_INFO = {
   },
   contact: {
     phone: "📞 聯絡電話：(02) 2366-1788",
-    email: "📧 電子信箱：service@lohas-academy.org",
-    line: "📱 LINE官方帳號：@lohas_academy (點擊加入領取萬元課程券)",
+    email: "📧 電子信箱：wiselohas@gmail.com",
+    line: "📝LINE：wiselohas",
     facebook: "👥 臉書粉絲專頁：樂活老後・精彩生活學堂"
   }
 };
