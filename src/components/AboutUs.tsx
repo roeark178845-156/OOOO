@@ -1,10 +1,22 @@
 import { Smile, HeartHandshake, ShieldCheck, Milestone, ChevronDown, ChevronUp } from "lucide-react";
 import { COMPANY_ABOUT } from "../data";
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function AboutUs() {
   const [isChenExpanded, setIsChenExpanded] = useState(false);
+  const [chenImageIndex, setChenImageIndex] = useState(0);
+  const [isChenHovered, setIsChenHovered] = useState(false);
+
+  const chenImages = ["/images/chen-01.jpg", "/images/chen-02.jpg"];
+
+  useEffect(() => {
+    if (isChenHovered) return;
+    const timer = setInterval(() => {
+      setChenImageIndex((prev) => (prev + 1) % chenImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isChenHovered, chenImages.length]);
 
   const coreValues = [
     {
@@ -94,13 +106,40 @@ export default function AboutUs() {
               className="rounded-[24px] bg-[#FAF8F3] border border-[#E6E2DA] shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
             >
               {/* Photo Area 4:5 Aspect Ratio */}
-              <div className="aspect-[4/5] w-full relative overflow-hidden bg-stone-200">
-                <img
-                  src="/images/chen.jpg"
-                  alt="陳柏霖"
-                  className="w-full h-full object-cover object-[20%_center]"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FAF8F3] to-transparent pointer-events-none" />
+              <div
+                className="aspect-[4/5] w-full relative overflow-hidden bg-stone-200"
+                onMouseEnter={() => setIsChenHovered(true)}
+                onMouseLeave={() => setIsChenHovered(false)}
+              >
+                <AnimatePresence mode="sync">
+                  <motion.img
+                    key={chenImages[chenImageIndex]}
+                    src={chenImages[chenImageIndex]}
+                    alt={`陳柏霖 ${chenImageIndex + 1}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover object-[20%_center]"
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FAF8F3] to-transparent pointer-events-none z-10" />
+
+                {/* Dot Indicators */}
+                <div className="absolute bottom-3 inset-x-0 flex justify-center items-center gap-2 z-20 pointer-events-auto">
+                  {chenImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setChenImageIndex(idx)}
+                      aria-label={`切換至第 ${idx + 1} 張照片`}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
+                        idx === chenImageIndex
+                          ? "bg-[#2d6a4f] scale-110"
+                          : "bg-stone-300 hover:bg-stone-400"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
 
               {/* Card Body */}
