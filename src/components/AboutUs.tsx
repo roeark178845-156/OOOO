@@ -5,15 +5,18 @@ import { useState, useEffect } from "react";
 
 export default function AboutUs() {
   const [isChenExpanded, setIsChenExpanded] = useState(false);
-  const [chenImageIndex, setChenImageIndex] = useState(0);
+  const [chenSlideIndex, setChenSlideIndex] = useState(0);
   const [isChenHovered, setIsChenHovered] = useState(false);
 
-  const chenImages = ["/images/chen-01.jpg", "/images/chen-02.jpg"];
+  const chenImages = [
+    "/images/chen-01.jpg",
+    "/images/chen-02.jpg"
+  ];
 
   useEffect(() => {
     if (isChenHovered) return;
     const timer = setInterval(() => {
-      setChenImageIndex((prev) => (prev + 1) % chenImages.length);
+      setChenSlideIndex((prev) => (prev + 1) % chenImages.length);
     }, 4000);
     return () => clearInterval(timer);
   }, [isChenHovered, chenImages.length]);
@@ -113,14 +116,14 @@ export default function AboutUs() {
               >
                 <AnimatePresence mode="sync">
                   <motion.img
-                    key={chenImages[chenImageIndex]}
-                    src={chenImages[chenImageIndex]}
-                    alt={`陳柏霖 ${chenImageIndex + 1}`}
+                    key={chenImages[chenSlideIndex]}
+                    src={chenImages[chenSlideIndex]}
+                    alt={`陳柏霖 ${chenSlideIndex + 1}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full object-cover object-[20%_center]"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>
                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FAF8F3] to-transparent pointer-events-none z-10" />
@@ -130,10 +133,10 @@ export default function AboutUs() {
                   {chenImages.map((_, idx) => (
                     <button
                       key={idx}
-                      onClick={() => setChenImageIndex(idx)}
+                      onClick={() => setChenSlideIndex(idx)}
                       aria-label={`切換至第 ${idx + 1} 張照片`}
                       className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
-                        idx === chenImageIndex
+                        idx === chenSlideIndex
                           ? "bg-[#2d6a4f] scale-110"
                           : "bg-stone-300 hover:bg-stone-400"
                       }`}
