@@ -26,6 +26,7 @@ import Timeline from "./components/Timeline";
 import WhyChooseUs from "./components/WhyChooseUs";
 import LatestEvents from "./components/LatestEvents";
 import GallerySmiles from "./components/GallerySmiles";
+import AntiFraud from "./components/AntiFraud";
 import OurServices from "./components/OurServices";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
@@ -54,7 +55,7 @@ export default function App() {
 
   // Listen to scrolls to highlight active nav sections
   useEffect(() => {
-    const sections = ["hero", "about", "four-btn", "timeline", "events", "gallery", "services", "contact"];
+    const sections = ["hero", "about", "four-btn", "timeline", "events", "gallery", "anti-fraud", "services", "contact"];
     const handleScroll = () => {
       const scrollPos = window.scrollY + 120;
       for (const sec of sections) {
@@ -133,7 +134,10 @@ export default function App() {
         {/* 8. Smile Gallery (Section 7) */}
         <GallerySmiles />
 
-        {/* 9. Our Services (Section 8) */}
+        {/* 9. Anti-Fraud Awareness Section (Section 8) */}
+        <AntiFraud />
+
+        {/* 10. Our Services (Section 9) */}
         <OurServices />
 
         {/* 10. Call to Action / Join us Form (Section 9) */}

@@ -10,7 +10,8 @@ import {
   Phone, 
   Menu, 
   X,
-  MessageSquare
+  MessageSquare,
+  ShieldCheck
 } from "lucide-react";
 
 interface HeaderProps {
@@ -29,6 +30,7 @@ export default function Header({ onOpenAIChat, onScrollToSection, activeSection 
     { id: "timeline", label: "精彩足跡", icon: Image },
     { id: "events", label: "最新活動", icon: Compass },
     { id: "gallery", label: "精彩回憶", icon: Image },
+    { id: "anti-fraud", label: "防詐宣導", icon: ShieldCheck },
     { id: "services", label: "我們的服務", icon: BookOpen },
     { id: "contact", label: "聯絡我們", icon: Phone },
   ];
