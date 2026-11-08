@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #FAF7F0;
+    color: #745846;
+  }
+}
+
+.font-wenkai {
+  font-family: "LXGW WenKai TC", "LXGW WenKai", "Kaiti TC", "STKaiti", "BiauKai", "DFKai-SB", "Noto Serif TC", serif;
+}
+
+.font-noto {
+  font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}

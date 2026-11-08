@@ -1,5 +1,171 @@
-import { Compass, UserPlus, Heart, Sparkles } from "lucide-react";
-import { motion } from "motion/react";
+import { useState, useEffect, useRef, useCallback, TouchEvent } from "react";
+import { Compass, UserPlus, Sparkles, ChevronLeft, ChevronRight, ShieldCheck, Heart, Smile } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+
+// 20 張幻燈片照片 (保留全部輪播圖片與順序)
+const heroSlides = [
+  { src: "/images/CC.01.JPG", alt: "玩美人生 樂齡活動精彩寫真 1" },
+  { src: "/images/CC.02.JPG", alt: "玩美人生 樂齡活動精彩寫真 2" },
+  { src: "/images/CC.03.JPG", alt: "玩美人生 樂齡活動精彩寫真 3" },
+  { src: "/images/CC.04.JPG", alt: "玩美人生 樂齡活動精彩寫真 4" },
+  { src: "/images/CC.05.JPG", alt: "玩美人生 樂齡活動精彩寫真 5" },
+  { src: "/images/CC.06.JPG", alt: "玩美人生 樂齡活動精彩寫真 6" },
+  { src: "/images/CC.07.JPG", alt: "玩美人生 樂齡活動精彩寫真 7" },
+  { src: "/images/CC.08.JPG", alt: "玩美人生 樂齡活動精彩寫真 8" },
+  { src: "/images/CC.09.JPG", alt: "玩美人生 樂齡活動精彩寫真 9" },
+  { src: "/images/CC.10.JPG", alt: "玩美人生 樂齡活動精彩寫真 10" },
+  { src: "/images/CC.11.JPG", alt: "玩美人生 樂齡活動精彩寫真 11" },
+  { src: "/images/CC.12.JPG", alt: "玩美人生 樂齡活動精彩寫真 12" },
+  { src: "/images/CC.13.JPG", alt: "玩美人生 樂齡活動精彩寫真 13" },
+  { src: "/images/CC.14.JPG", alt: "玩美人生 樂齡活動精彩寫真 14" },
+  { src: "/images/CC.15.JPG", alt: "玩美人生 樂齡活動精彩寫真 15" },
+  { src: "/images/CC.16.JPG", alt: "玩美人生 樂齡活動精彩寫真 16" },
+  { src: "/images/CC.17.JPG", alt: "玩美人生 樂齡活動精彩寫真 17" },
+  { src: "/images/CC.18.JPG", alt: "玩美人生 樂齡活動精彩寫真 18" },
+  { src: "/images/CC.19.JPG", alt: "玩美人生 樂齡活動精彩寫真 19" },
+  { src: "/images/CC.20.JPG", alt: "玩美人生 樂齡活動精彩寫真 20" },
+];
+
+/**
+ * 右側大型圓角長方形相片輪播
+ * 電腦版尺寸：560 × 420px，手機版寬度100%、比例16:10
+ * 每4秒自動播放、0.7秒淡入淡出、hover暫停、左右箭頭、下方圓點、支援手勢滑動
+ */
+function HeroPhotoSlider() {
+  const [index, setIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setIndex((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  }, []);
+
+  // 每 4 秒自動播放下一張，Hover 時暫停
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isHovered, nextSlide]);
+
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 45) {
+      nextSlide();
+    } else if (diff < -45) {
+      prevSlide();
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <div className="relative w-full flex flex-col items-center">
+      {/* 照片外圍裝飾柔和水彩光暈與自然圓塊 */}
+      <div className="absolute -top-6 -right-6 w-44 h-44 rounded-full bg-[#6E9477]/15 blur-2xl pointer-events-none -z-10" />
+      <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-[#E9A85D]/15 blur-2xl pointer-events-none -z-10" />
+      <div className="absolute -top-4 -left-4 w-32 h-32 rounded-3xl bg-[#F5E4DF]/40 rotate-6 pointer-events-none -z-10" />
+      
+      {/* 560 x 420 px 大型圓角長方形相框 (手機 16:10) */}
+      <div
+        className="group/slider relative w-full lg:w-[560px] h-[260px] sm:h-[340px] md:h-[390px] lg:h-[420px] rounded-[28px] overflow-hidden shadow-[0_16px_40px_-12px_rgba(40,73,54,0.16)] border-4 border-white bg-[#FAF7F0] select-none"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* 照片輪播主體 (0.7s 淡入淡出) */}
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={heroSlides[index].src}
+            src={heroSlides[index].src}
+            alt={heroSlides[index].alt}
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "center 30%" }}
+            onError={(e) => {
+              // 備援處理
+              const target = e.target as HTMLImageElement;
+              target.src = "/images/sun.jpg";
+            }}
+          />
+        </AnimatePresence>
+
+        {/* 柔和底部暗漸層 (提升指示器對比) */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 via-black/20 to-transparent pointer-events-none" />
+
+        {/* 右上方精緻照片計數徽章 */}
+        <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-[#284936]/75 backdrop-blur-md text-[#FAF7F0] text-xs font-semibold font-noto tracking-wider shadow-sm border border-white/20">
+          <span>{index + 1}</span>
+          <span className="opacity-70 mx-1">/</span>
+          <span>{heroSlides.length}</span>
+        </div>
+
+        {/* 左側切換按鈕 */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            prevSlide();
+          }}
+          aria-label="上一張照片"
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white/85 hover:bg-white text-[#284936] shadow-md backdrop-blur-xs flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer opacity-90 group-hover/slider:opacity-100"
+        >
+          <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+        </button>
+
+        {/* 右側切換按鈕 */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            nextSlide();
+          }}
+          aria-label="下一張照片"
+          className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white/85 hover:bg-white text-[#284936] shadow-md backdrop-blur-xs flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer opacity-90 group-hover/slider:opacity-100"
+        >
+          <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+        </button>
+
+        {/* 下方指示圓點 (滿版居中滑動圓點) */}
+        <div className="absolute bottom-3.5 inset-x-0 z-20 flex justify-center items-center gap-1.5 px-4 pointer-events-auto">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`切換至第 ${i + 1} 張照片`}
+              className={`rounded-full transition-all duration-300 cursor-pointer ${
+                i === index
+                  ? "w-6 h-2 bg-[#E9A85D] shadow-sm"
+                  : "w-2 h-2 bg-white/70 hover:bg-white"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* 輪播下方的品牌標語：簡約、清楚的藝術字體排列 */}
+      <div className="mt-5 text-center px-4">
+        <p className="text-xl sm:text-2xl md:text-[26px] font-bold text-[#284936] font-wenkai tracking-wide leading-relaxed">
+          退休不是終點，而是「<span className="text-[#6E9477]">玩美人生</span>」的起跑點！
+        </p>
+        <p className="mt-1 text-sm sm:text-base text-[#745846] font-noto font-normal tracking-wider">
+          Wiselohas ・ 樂活學堂與您漫步人生每個幸福瞬間
+        </p>
+      </div>
+    </div>
+  );
+}
 
 interface HeroProps {
   onScrollToSection: (id: string) => void;
@@ -8,300 +174,131 @@ interface HeroProps {
 
 export default function Hero({ onScrollToSection, onOpenJoinModal }: HeroProps) {
   return (
-    <section id="hero" className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#FAF8F3] to-[#FAF8F3]/50 py-12 md:py-20 lg:py-28">
-      {/* Background soft color spots */}
-      <div className="absolute top-10 left-1/2 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-[#8CCAF7]/20 blur-3xl"></div>
-      <div className="absolute right-10 bottom-10 -z-10 h-80 w-80 rounded-full bg-[#4E7C59]/10 blur-3xl"></div>
-      <div className="absolute left-10 top-1/3 -z-10 h-64 w-64 rounded-full bg-[#D8A44C]/15 blur-3xl"></div>
+    <section 
+      id="hero" 
+      className="relative overflow-hidden bg-[#FAF7F0] py-10 sm:py-14 md:py-18 lg:py-20 text-[#745846]"
+    >
+      {/* 柔和自然水彩光暈與植物線條背景點綴 (極淡 10%~20%，不影響文字) */}
+      <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-[#6E9477]/12 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 -z-10 h-80 w-80 rounded-full bg-[#E9A85D]/12 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/3 -z-10 h-72 w-72 rounded-full bg-[#F5E4DF]/30 blur-3xl pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* 左上角手繪風微植物裝飾 SVG */}
+      <div className="absolute top-4 left-4 opacity-15 pointer-events-none text-[#6E9477] hidden md:block">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2C6.5 2 2 6.5 2 12c0 3.5 1.8 6.6 4.5 8.4" />
+          <path d="M12 22s8-4 8-10V5l-8-3" />
+          <path d="M8 12s2-2 4-2 4 2 4 2-2 2-4 2-4-2-4-2z" />
+        </svg>
+      </div>
+
+      {/* 右下角手繪風微波浪點綴 */}
+      <div className="absolute bottom-4 right-6 opacity-15 pointer-events-none text-[#E9A85D] hidden md:block">
+        <svg width="80" height="24" viewBox="0 0 80 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M0 12 Q 10 4, 20 12 T 40 12 T 60 12 T 80 12" />
+          <path d="M0 18 Q 10 10, 20 18 T 40 18 T 60 18 T 80 18" />
+        </svg>
+      </div>
+
+      {/* 最大寬度 1200px 置中容器 */}
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
+        {/* 左右雙欄排版：左側佔 45%，右側佔 55% */}
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-10 lg:gap-8 items-center">
           
-          {/* Text Column */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            {/* Tagline */}
-            <div className="inline-flex items-center space-x-2 rounded-full bg-[#4E7C59]/10 px-4 py-2 text-[#4E7C59]">
-              <Sparkles className="h-5 w-5 animate-spin" style={{ animationDuration: "3s" }} />
-              <span className="text-base font-bold tracking-wide">台灣最溫馨的樂齡生活社群</span>
+          {/* ================= 左側內容欄 (45% -> lg:col-span-5 或 4.5 比例，對應 45% / 55%) ================= */}
+          <div className="lg:col-span-5 space-y-6 sm:space-y-7 text-center lg:text-left">
+            
+            {/* 小型品牌標籤 */}
+            <div className="inline-flex items-center space-x-2 rounded-full bg-white px-4 py-1.5 shadow-[0_2px_10px_rgba(40,73,54,0.06)] border border-[#E6DEC8]">
+              <Sparkles className="h-4 w-4 text-[#E9A85D]" />
+              <span className="text-sm font-semibold text-[#284936] font-noto tracking-wide">
+                台灣最溫馨的樂齡生活社群
+              </span>
             </div>
 
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1C2E21] leading-tight tracking-tight select-none">
-              {/* Phrase 1: Animated letter by letter in continuous loop */}
-              <span className="inline-block mb-2">
-                {"退休 不是人生的終點".split("").map((char, index) => (
-                  <motion.span
-                    key={`char1-${index}`}
-                    className="inline-block"
-                    animate={{
-                      opacity: [0, 1, 1, 0, 0],
-                      y: [15, 0, 0, -15, 15],
-                      filter: ["blur(4px)", "blur(0px)", "blur(0px)", "blur(4px)", "blur(4px)"],
-                    }}
-                    transition={{
-                      duration: 8,
-                      times: [0, 0.12, 0.75, 0.85, 1],
-                      repeat: Infinity,
-                      delay: index * 0.08,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
+            {/* 主標題：48~56px (手機32~36px)、霞鶩文楷、深墨綠 #284936、清晰無模糊、兩行呈現 */}
+            <h1 className="text-[32px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[54px] font-bold text-[#284936] font-wenkai leading-[1.28] tracking-tight select-none">
+              <span className="block">
+                退休，不是人生的終點
               </span>
-              <br />
-              {/* Phrase 2: Shimmering premium gradient and staggered animation in continuous loop */}
-              <motion.span 
-                className="inline-block bg-gradient-to-r from-[#3E6B48] via-[#D8A44C] to-[#3E6B48] bg-clip-text text-transparent"
-                style={{
-                  backgroundSize: "200% auto",
-                }}
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                {"慢活人生的新起點。".split("").map((char, index) => (
-                  <motion.span
-                    key={`char2-${index}`}
-                    className="inline-block"
-                    animate={{
-                      opacity: [0, 1, 1, 0, 0],
-                      y: [15, 0, 0, -15, 15],
-                      filter: ["blur(4px)", "blur(0px)", "blur(0px)", "blur(4px)", "blur(4px)"],
-                    }}
-                    transition={{
-                      duration: 8,
-                      times: [0, 0.12, 0.75, 0.85, 1],
-                      repeat: Infinity,
-                      delay: 0.9 + index * 0.08,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.span>
+              <span className="block mt-1 text-[#284936]">
+                而是 <span className="text-[#6E9477]">慢活人生</span> 的 <span className="text-[#E9A85D]">新起點</span>。
+              </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-xl sm:text-2xl font-semibold text-[#5C564C] leading-relaxed">
+            {/* 副標題：20~22px (手機16~17px)、可可棕 #745846、清晰對比 */}
+            <p className="text-[17px] sm:text-[20px] lg:text-[21px] font-medium text-[#745846] leading-relaxed font-noto max-w-xl mx-auto lg:mx-0">
               一起旅行 ． 一起學習 ． 一起做公益 ． 一起創造幸福回憶
             </p>
 
-            {/* Badges for elderly friendliness */}
-            <div className="grid grid-cols-3 gap-3 pt-2">
-              <div className="flex flex-col items-center lg:items-start p-3 bg-white rounded-xl border border-[#E6E2DA] shadow-sm">
-                <span className="text-3xl">😊</span>
-                <span className="mt-1.5 text-sm font-bold text-gray-700">貼心無障礙</span>
+            {/* 三張特色卡片：高度一致、淡奶油色底、圓角18px、細緻陰影、圖示大小一致、內容垂直置中、Hover輕浮3px */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+              <div className="flex sm:flex-col items-center sm:items-center lg:items-start text-left sm:text-center lg:text-left space-x-3.5 sm:space-x-0 p-4 min-h-[92px] sm:min-h-[110px] bg-white rounded-[18px] border border-[#E6DEC8]/80 shadow-[0_4px_16px_rgba(40,73,54,0.05)] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_8px_20px_rgba(40,73,54,0.08)]">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-[#FAF7F0] text-2xl shrink-0 sm:mb-2 border border-[#E6DEC8]/60">
+                  <span>😊</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-[15px] sm:text-[16px] font-bold text-[#284936] font-noto">
+                    貼心無障礙
+                  </span>
+                  <span className="text-xs text-[#745846]/80 font-noto mt-0.5">
+                    平緩路線 安心陪伴
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col items-center lg:items-start p-3 bg-white rounded-xl border border-[#E6E2DA] shadow-sm">
-                <span className="text-3xl">🛡️</span>
-                <span className="mt-1.5 text-sm font-bold text-gray-700">安心安全隨行</span>
+
+              <div className="flex sm:flex-col items-center sm:items-center lg:items-start text-left sm:text-center lg:text-left space-x-3.5 sm:space-x-0 p-4 min-h-[92px] sm:min-h-[110px] bg-white rounded-[18px] border border-[#E6DEC8]/80 shadow-[0_4px_16px_rgba(40,73,54,0.05)] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_8px_20px_rgba(40,73,54,0.08)]">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-[#FAF7F0] text-2xl shrink-0 sm:mb-2 border border-[#E6DEC8]/60">
+                  <span>🛡️</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-[15px] sm:text-[16px] font-bold text-[#284936] font-noto">
+                    安心安全隨行
+                  </span>
+                  <span className="text-xs text-[#745846]/80 font-noto mt-0.5">
+                    醫療照護 專業守護
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col items-center lg:items-start p-3 bg-white rounded-xl border border-[#E6E2DA] shadow-sm">
-                <span className="text-3xl">❤️</span>
-                <span className="mt-1.5 text-sm font-bold text-gray-700">有溫度的陪伴</span>
+
+              <div className="flex sm:flex-col items-center sm:items-center lg:items-start text-left sm:text-center lg:text-left space-x-3.5 sm:space-x-0 p-4 min-h-[92px] sm:min-h-[110px] bg-white rounded-[18px] border border-[#E6DEC8]/80 shadow-[0_4px_16px_rgba(40,73,54,0.05)] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_8px_20px_rgba(40,73,54,0.08)]">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-[#FAF7F0] text-2xl shrink-0 sm:mb-2 border border-[#E6DEC8]/60">
+                  <span>❤️</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-[15px] sm:text-[16px] font-bold text-[#284936] font-noto">
+                    有溫度的陪伴
+                  </span>
+                  <span className="text-xs text-[#745846]/80 font-noto mt-0.5">
+                    志工同行 暖心真誠
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            {/* 兩個操作按鈕：高度56px、圓角16px、間距16px、按鈕1鼠尾草綠 #6E9477、按鈕2暖杏橘 #E9A85D、字體18px */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <button
                 onClick={() => onScrollToSection("events")}
-                className="flex w-full sm:w-auto items-center justify-center space-x-2 rounded-2xl bg-[#4E7C59] hover:bg-[#3D6646] text-white px-8 py-5 text-xl font-bold shadow-lg shadow-green-200 transition-all transform hover:-translate-y-1"
+                className="flex w-full sm:w-auto h-[56px] items-center justify-center space-x-2.5 rounded-[16px] bg-[#6E9477] hover:bg-[#5b8064] text-white px-8 text-[18px] font-bold font-noto shadow-[0_8px_20px_rgba(110,148,119,0.25)] hover:shadow-[0_10px_24px_rgba(110,148,119,0.35)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <Compass className="h-6 w-6" />
-                <span>🟢 查看最新活動</span>
+                <Compass className="h-5 w-5" />
+                <span>查看最新活動</span>
               </button>
               
               <button
                 onClick={onOpenJoinModal}
-                className="flex w-full sm:w-auto items-center justify-center space-x-2 rounded-2xl bg-[#D8A44C] hover:bg-[#C08E3C] text-white px-8 py-5 text-xl font-bold shadow-lg shadow-orange-200 transition-all transform hover:-translate-y-1"
+                className="flex w-full sm:w-auto h-[56px] items-center justify-center space-x-2.5 rounded-[16px] bg-[#E9A85D] hover:bg-[#d8964b] text-white px-8 text-[18px] font-bold font-noto shadow-[0_8px_20px_rgba(233,168,93,0.25)] hover:shadow-[0_10px_24px_rgba(233,168,93,0.35)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <UserPlus className="h-6 w-6" />
-                <span>🟠 立即加入我們</span>
+                <UserPlus className="h-5 w-5" />
+                <span>立即加入我們</span>
               </button>
             </div>
           </div>
 
-          {/* Image Column */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-[450px] lg:max-w-none">
-              {/* Main Decorative Background Card border */}
-              <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-[#4E7C59] to-[#D8A44C] opacity-30 blur-md"></div>
-              
-              {/* Picture Frame / Circular Sticker Design */}
-              <div className="relative overflow-hidden rounded-full border-8 border-[#27422E] bg-white shadow-2xl aspect-square w-full max-w-[420px] mx-auto p-6 flex flex-col justify-between items-center text-center">
-                
-                {/* Sticker inner thin circle */}
-                <div className="absolute inset-2 rounded-full border-2 border-[#E6E2DA] pointer-events-none"></div>
-
-                {/* Top Half: Illustration Area */}
-                <div className="relative mt-14 flex flex-col items-center">
-                  {/* Heart background for couple */}
-                  <div className="relative h-32 w-32 flex items-center justify-center">
-                    {/* Floating Hearts & Sun & Stickers forming a beautiful 2x larger semi-circular arc */}
-                    
-                    {/* Item 1: ☀️ (Sun) - Leftmost */}
-                    <span 
-                      className="absolute w-14 h-14 text-4xl animate-bounce flex items-center justify-center cursor-default select-none" 
-                      style={{ 
-                        left: "-56px", 
-                        top: "11px", 
-                        animationDuration: "2.0s", 
-                        animationDelay: "0s" 
-                      }}
-                      title="活力暖陽"
-                    >
-                      ☀️
-                    </span>
-
-                    {/* Item 2: 📷 (Camera) - Top-Left */}
-                    <span 
-                      className="absolute w-14 h-14 text-4xl animate-bounce flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 select-none" 
-                      style={{ 
-                        left: "-31px", 
-                        top: "-31px", 
-                        animationDuration: "2.0s", 
-                        animationDelay: "0s" 
-                      }} 
-                      title="慢活旅遊"
-                    >
-                      📷
-                    </span>
-
-                    {/* Item 3: 🎨 (Palette) - Top-Center-Left */}
-                    <span 
-                      className="absolute w-14 h-14 text-4xl animate-bounce flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 select-none" 
-                      style={{ 
-                        left: "11px", 
-                        top: "-56px", 
-                        animationDuration: "2.0s", 
-                        animationDelay: "0s" 
-                      }} 
-                      title="樂活課程"
-                    >
-                      🎨
-                    </span>
-
-                    {/* Item 4: ❤️ (Heart) - Top-Center-Right */}
-                    <span 
-                      className="absolute w-14 h-14 text-4xl animate-bounce flex items-center justify-center cursor-default select-none" 
-                      style={{ 
-                        left: "61px", 
-                        top: "-56px", 
-                        animationDuration: "2.0s", 
-                        animationDelay: "0s" 
-                      }}
-                      title="愛與溫暖"
-                    >
-                      ❤️
-                    </span>
-
-                    {/* Item 5: 💼 (Suitcase) - Top-Right */}
-                    <span 
-                      className="absolute w-14 h-14 text-4xl animate-bounce flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 select-none" 
-                      style={{ 
-                        left: "103px", 
-                        top: "-31px", 
-                        animationDuration: "2.0s", 
-                        animationDelay: "0s" 
-                      }} 
-                      title="迎風出發"
-                    >
-                      💼
-                    </span>
-
-                    {/* Item 6: 📓 (Notebook) - Rightmost */}
-                    <span 
-                      className="absolute w-14 h-14 text-4xl animate-bounce flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 select-none" 
-                      style={{ 
-                        left: "128px", 
-                        top: "11px", 
-                        animationDuration: "2.0s", 
-                        animationDelay: "0s" 
-                      }} 
-                      title="精彩日程"
-                    >
-                      📓
-                    </span>
-                    
-                    {/* Animated Senior Couple Holding Hands */}
-                    <motion.div 
-                      className="relative h-28 w-28 rounded-full border-4 border-amber-200 overflow-hidden shadow-lg bg-gradient-to-tr from-amber-100 via-orange-100 to-rose-100 flex flex-col items-center justify-center cursor-pointer select-none"
-                      animate={{ scale: [1, 1.04, 1] }}
-                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                      title="手牽手 伴一生"
-                    >
-                      {/* Floating hearts animation */}
-                      <motion.span
-                        className="absolute text-rose-500 text-sm font-bold z-10"
-                        animate={{ y: [10, -22], opacity: [0, 1, 0], x: [-3, 3, -3] }}
-                        transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut" }}
-                        style={{ top: '22%' }}
-                      >
-                        💖
-                      </motion.span>
-                      
-                      <motion.span
-                        className="absolute text-amber-500 text-xs font-bold z-10"
-                        animate={{ y: [12, -18], opacity: [0, 1, 0], x: [4, -4, 4] }}
-                        transition={{ repeat: Infinity, duration: 2.8, ease: "easeOut", delay: 1 }}
-                        style={{ top: '25%' }}
-                      >
-                        ✨
-                      </motion.span>
-
-                      {/* Holding hands animated figures / emoji */}
-                      <motion.div
-                        className="text-5xl flex items-center justify-center relative z-0 mt-1"
-                        animate={{ y: [0, -3, 0], rotate: [-2, 2, -2] }}
-                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                      >
-                        👫
-                      </motion.div>
-
-                      {/* Hand-in-hand badge overlay */}
-                      <div className="absolute bottom-1 bg-amber-900/85 text-amber-100 text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
-                        手牽手 樂生活
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Middle Half: Text Content */}
-                <div className="relative z-10 my-1 space-y-1.5 px-4">
-                  <h3 className="text-xl sm:text-2xl font-black text-amber-950 leading-tight">
-                    退休不是終點，
-                  </h3>
-                  <h3 className="text-xl sm:text-2xl font-black text-[#8E5136] leading-tight">
-                    而是「<span className="text-[#4E7C59]">玩美人生</span>」的起跑點！
-                  </h3>
-                  
-                  <div className="inline-block mt-2 rounded-full bg-orange-50 border border-orange-200 px-4 py-1 text-xs sm:text-sm font-black text-orange-600">
-                    📅 7月～10月課程＆旅遊開放報名
-                  </div>
-                </div>
-
-                {/* Bottom Half: Curved Signboard / Badge */}
-                <div className="relative z-10 w-full mb-2">
-                  <div className="inline-flex items-center space-x-2 bg-[#27422E] text-white px-6 py-2 rounded-full font-black text-sm tracking-wide shadow-md border-2 border-white/20">
-                    <span>🙌 樂齡課程及旅遊報名處 🙌</span>
-                  </div>
-                </div>
-
-                {/* Inner decorative leaves/hearts */}
-                <div className="absolute bottom-12 left-10 text-emerald-700 text-sm opacity-60">🌿</div>
-                <div className="absolute bottom-12 right-10 text-emerald-700 text-sm opacity-60">🌿</div>
-                
-              </div>
-            </div>
+          {/* ================= 右側內容欄 (55% -> lg:col-span-5 大型圓角照片輪播) ================= */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end mt-4 lg:mt-0">
+            <HeroPhotoSlider />
           </div>
 
         </div>
