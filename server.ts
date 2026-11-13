@@ -58,37 +58,37 @@ Sitemap: ${protocol}://${host}/sitemap.xml`);
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${baseUrl}/</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>${baseUrl}/#about</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/#events</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>${baseUrl}/#gallery</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>${baseUrl}/#services</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>${baseUrl}/#contact</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -99,8 +99,8 @@ Sitemap: ${protocol}://${host}/sitemap.xml`);
   app.get("/manifest.json", (req, res) => {
     res.header("Content-Type", "application/json");
     res.json({
-      "short_name": "玩美人生💞Wiselohas💕",
-      "name": "玩美人生💞Wiselohas💕",
+      "short_name": "玩美人生💞Wiselohas🌸",
+      "name": "玩美人生💞Wiselohas🌸",
       "icons": [
         {
           "src": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=192",
