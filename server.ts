@@ -39,7 +39,7 @@ async function startServer() {
 
   // robots.txt for search engines
   app.get("/robots.txt", (req, res) => {
-    const host = req.get("host") || "ais-pre-4f7vhehthsd7wpp3pxgjfr-250294217184.asia-east1.run.app";
+    const host = req.get("host") || "wiselohas.com";
     const protocol = req.secure || req.headers["x-forwarded-proto"] === "https" ? "https" : "http";
     res.header("Content-Type", "text/plain");
     res.send(`User-agent: *
@@ -50,7 +50,7 @@ Sitemap: ${protocol}://${host}/sitemap.xml`);
 
   // sitemap.xml for Google indexing
   app.get("/sitemap.xml", (req, res) => {
-    const host = req.get("host") || "ais-pre-4f7vhehthsd7wpp3pxgjfr-250294217184.asia-east1.run.app";
+    const host = req.get("host") || "wiselohas.com";
     const protocol = req.secure || req.headers["x-forwarded-proto"] === "https" ? "https" : "http";
     const baseUrl = `${protocol}://${host}`;
     res.header("Content-Type", "application/xml");
@@ -99,8 +99,8 @@ Sitemap: ${protocol}://${host}/sitemap.xml`);
   app.get("/manifest.json", (req, res) => {
     res.header("Content-Type", "application/json");
     res.json({
-      "short_name": "樂活學堂",
-      "name": "樂活學堂 - 樂齡退休生活規劃與陪伴社群",
+      "short_name": "玩美人生💞Wiselohas💕",
+      "name": "玩美人生💞Wiselohas💕",
       "icons": [
         {
           "src": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=192",
