@@ -53,7 +53,7 @@ export default function Header({ onOpenAIChat, onScrollToSection, activeSection 
           </div>
           <div className="flex flex-col justify-center">
             <h1 className="text-[19.4px] sm:text-[23.3px] font-black text-[#284936] tracking-tight font-wenkai transition-colors duration-200">
-              玩美人生💞Wiselohas🌸
+              玩美人生團隊
             </h1>
           </div>
         </div>
